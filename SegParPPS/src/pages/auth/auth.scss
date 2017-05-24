@@ -1,0 +1,169 @@
+.auth-home {
+  background-image: url("https://img.difoosion.com/wp-content/blogs.dir/28/files/2016/02/Mi5wallpaper03-copy-copy-700x1244.jpg");
+  background-size: 100%;
+  background-position-y: 50%;
+  
+  .logo {
+    height: 47%;
+    width: 100%;
+    
+
+    .logo-icon {
+      text-align: center;
+      font-size: 40px;
+      padding-top: 20%;
+      color: white;
+      
+    }
+  }
+  #imgIonic{
+   border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+    width: 200px;
+    height: 170px;
+    
+  }
+  
+  .signup-col {
+    margin: 0px 16px 0px 16px;
+    padding-bottom: 20px;
+    
+  }
+  
+  .error {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(217, 74, 87);
+    p {
+      color: white;
+      font-weight: bold;
+    }
+  }
+ .submit-btn {
+       background: 	#FF8C00;
+       border-radius: 30px !important;
+       border: 1px solid #ffffff;
+       
+     }
+ 
+     .register-btn {
+      background-color: #d34836;
+      margin: auto;
+      width: 95%;
+      margin-bottom: 5px;
+     }
+     .login-box {
+      //background: rgba(192, 46, 46, 0.22);
+      padding: 20px 20px 0px 20px;
+      margin-top: 30px;
+      
+    }
+  
+$color-github: 	#7FFF00;
+$color-facebook: #3b5a9b;
+$color-google: 	#FF0000;
+/* Social Icon Mixin */
+@mixin social-icon($color) {
+  background: $color;
+  background: linear-gradient(tint($color, 5%), shade($color, 5%));
+  border-bottom: 1px solid shade($color, 20%);
+  color: tint($color, 50%);
+
+  &:hover {
+    color: tint($color, 80%);
+    text-shadow: 0px 1px 0px shade($color, 20%);
+  }
+
+  .tooltip {
+    background: $color;
+    background: linear-gradient(tint($color, 15%), $color);
+    color: tint($color, 80%);
+
+    &:after {
+      border-top-color: $color;
+    }
+  }
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 0.7rem;
+  margin: auto;
+  border-radius: 50%;
+  cursor: pointer;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 2.5rem;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: #fff;
+
+    .tooltip {
+      visibility: visible;
+      opacity: 1;
+      transform: translate(-50%, -150%);
+    }
+  }
+    
+  &:active {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5) inset;
+  }
+  
+  &--facebook { @include social-icon($color-facebook); }
+  &--github { @include social-icon($color-github); }
+  &--google { @include social-icon($color-google); }
+  i {
+    position: relative;
+    top: 1px;
+  }
+}
+
+/* Tooltips */
+.tooltip {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding: 0.8rem 1rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: translate(-50%, -100%);
+  transition: all 0.3s ease;
+  z-index: 1;
+  
+  &:after {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    content: "";
+    border: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: transparent;
+    transform: translate(-50%, 100%);
+  }
+}
+
+
+
+}

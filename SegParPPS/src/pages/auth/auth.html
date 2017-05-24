@@ -1,0 +1,37 @@
+<ion-content class="auth-home">
+  <div class="logo">
+    <div class="logo-icon">
+    
+    <img id="imgIonic" src="https://s3.amazonaws.com/ionic-marketplace/ionic-2-social-ui/icon.png"/>
+    </div>
+  </div>
+
+   <div class="social-icons">
+    <a class="social-icon social-icon--github">
+      <i class="fa fa-github"></i>
+      <div class="tooltip">Github</div>
+    </a>
+    <a class="social-icon social-icon--facebook" (click)="loginUserWithFacebook()">
+      <i class="fa fa-facebook"></i>
+      <div class="tooltip">Facebook</div>
+    </a>
+    <a class="social-icon social-icon--google" (click)="loginUserWithGoogle()">
+    <i class="fa fa-google"></i>
+    <div class="tooltip">Google</div>
+  </a>
+  </div>
+  <div class="login-box">
+  <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="register-btn" (click)="openSignUpPage()">Registrarse</button>
+          <button ion-button rounded block class="submit-btn" (click)="openLoginPage()">Iniciar sesión</button>
+        </ion-col>
+      </ion-row>
+  </div>
+ 
+
+  <div padding class="error" *ngIf="error">
+    <p>{{error}}</p>
+  </div>
+
+</ion-content>
