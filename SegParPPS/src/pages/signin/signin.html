@@ -1,13 +1,40 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Sign In</ion-title>
+    <ion-title>
+      Regístrate
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
+<ion-content class="sign-in">
+    
+<ion-buttons>
+      <button id="btnLogin" ion-button (click)="openLoginPage()">
+        <div>
+            <ion-icon name="flash"></ion-icon>
+            <label>Login</label>
+        </div>
+    </button>
+</ion-buttons>
+  <form (ngSubmit)="register()" #signUpForm="ngForm">
+    <ion-list>
+       <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" [(ngModel)]="form.email" name="name"></ion-input>
+      </ion-item>
 
-<ion-content padding>
-<h1>Vista de Registro</h1>
+      <ion-item>
+        <ion-label floating>Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="form.password" name="password"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <button ion-button block [disabled]="!signUpForm.form.valid"
+      class="sign-up-btn">Regístrate
+    </button>
+
+    <div padding class="error" *ngIf="error">
+      <p>{{error}}</p>
+    </div>
+  </form>
 </ion-content>
