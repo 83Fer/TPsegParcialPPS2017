@@ -10,9 +10,13 @@ import { AboutPage } from '../pages/about/about';
 import { EstadisticasPage } from '../pages/estadisticas/estadisticas';
 import { CuestionarioPage } from '../pages/cuestionario/cuestionario';
 
+//Providers
+import { AuthProvider } from '../providers/auth/auth';
+
+
 //Vistas
 import { LoginPage } from '../pages/login/login';
-import { SigninPage } from '../pages/signin/signin';
+//import { SigninPage } from '../pages/signin/signin';
 
 export interface PageInterface {
   title: string;
@@ -32,7 +36,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
 
-  rootPage:any = TabsPage;
+  rootPage:any = LoginPage;
 
   pages: PageInterface[] = [
     { title: 'Cuestionario', name: 'TabsPage', component: TabsPage, tabComponent: CuestionarioPage, index: 0, icon: 'list-box' },
@@ -41,13 +45,14 @@ export class MyApp {
   ];
 
   pagesLog: PageInterface[] = [
-    { title: 'Login', name: 'LoginPage', component: LoginPage, icon: 'log-in' },
-    { title: 'Signin', name: 'SigninPage', component: SigninPage, icon: 'person-add' }
+    { title: 'Logout', name: 'LoginPage', component: LoginPage, icon: 'log-out', logsOut: true }
+    //{ title: 'Signin', name: 'SigninPage', component: SigninPage, icon: 'person-add' }
   ];
 
   constructor(public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
+    public auth: AuthProvider,
     public splashScreen: SplashScreen) {
     this.initializeApp();
 
@@ -81,6 +86,12 @@ export class MyApp {
       this.nav.setRoot(page.name, params).catch((err: any) => {
         console.log(err);
       });
+    }
+
+    //Logout
+    if (page.logsOut === true) {
+      console.log("Logout");
+      this.auth.logout();
     }
     
   }

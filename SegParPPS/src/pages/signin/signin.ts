@@ -1,9 +1,9 @@
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController, LoadingController, MenuController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { LoginPage } from '../login/login';
 import { AuthProvider } from './../../providers/auth/auth';
 
-import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-signin',
@@ -17,6 +17,7 @@ export class SigninPage {
   constructor(private navCtrl: NavController,
     private auth: AuthProvider,
     private loadingCtrl: LoadingController,
+    public menu: MenuController
   ) {
     this.form = {
       email: '',
@@ -38,7 +39,7 @@ export class SigninPage {
       this.auth.loginWithEmail(registerData).subscribe(loginData => {
         setTimeout(() => {
           loading.dismiss();
-          this.navCtrl.setRoot(HomePage);
+          this.navCtrl.setRoot(TabsPage);
         }, 1000);
       }, loginError => {
         setTimeout(() => {
@@ -53,5 +54,16 @@ export class SigninPage {
       }, 1000);
     });
   }
+
+  ionViewDidEnter() {
+    // Inhabilitar el menu
+    this.menu.enable(false);
+  }
+
+  ionViewDidLeave() {
+    // Habilitar el menu
+    this.menu.enable(true);
+  }
+
 }
 

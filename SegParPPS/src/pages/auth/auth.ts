@@ -4,7 +4,7 @@ import { LoginPage } from '../login/login';
 import { SigninPage } from '../signin/signin';
 import { AuthProvider } from './../../providers/auth/auth';
 
-import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-auth',
@@ -30,14 +30,14 @@ export class AuthPage {
 
   loginUserWithFacebook() {
     this.auth.loginWithFacebook().subscribe(data => {
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(TabsPage);
     }, err => {
       this.error = err;
     });
   }
   loginUserWithGoogle() {
     this.auth.googleauth().subscribe(data => {
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(TabsPage);
     }, err => {
       this.error = err;
     });

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController, LoadingController,  MenuController } from 'ionic-angular';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 import { SigninPage } from '../signin/signin';
 import { AuthProvider } from './../../providers/auth/auth';
-import { HomePage } from '../home/home';
+
+//Vistas
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-login',
@@ -15,7 +17,7 @@ export class LoginPage {
   form: any;
 
   constructor(private navCtrl: NavController, private auth: AuthProvider,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController, public menu: MenuController,
   ) {
     this.form = {
       email: '',
@@ -38,7 +40,7 @@ export class LoginPage {
     loading.present();
 
     this.auth.loginWithEmail(this.form).subscribe(data => {
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(TabsPage);
       setTimeout(() => {
         loading.dismiss();
       }, 1000);
@@ -50,6 +52,14 @@ export class LoginPage {
     });
   }
 
-  
+  ionViewDidEnter() {
+    // Inhabilitar el menu
+    this.menu.enable(false);
+  }
+
+  ionViewDidLeave() {
+    // Habilitar el menu
+    this.menu.enable(true);
+  }
 
 }

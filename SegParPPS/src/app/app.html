@@ -13,7 +13,7 @@
 
       <ion-list>
         <ion-list-header>
-          Navigate
+          Paginas
         </ion-list-header>
         <button ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
           <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
@@ -23,7 +23,7 @@
 
       <ion-list>
         <ion-list-header>
-          Account
+          Cuenta Activa
         </ion-list-header>
         <button ion-item menuClose *ngFor="let p of pagesLog" (click)="openPage(p)">
           <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>

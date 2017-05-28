@@ -12,7 +12,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 //Vistas
 import { LoginPage } from '../pages/login/login';
 import { SigninPage } from '../pages/signin/signin';
-import { HomePage } from '../pages/home/home';
+
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 import { AuthPage } from '../pages/auth/auth';
 
@@ -40,7 +40,6 @@ export const firebaseConfig = {
     TabsPage,
     LoginPage,
     SigninPage,
-    HomePage,
     AuthPage,
     ForgotPasswordPage
   ],
@@ -64,7 +63,6 @@ export const firebaseConfig = {
     TabsPage,
     LoginPage,
     SigninPage,
-    HomePage,
     AuthPage,
     ForgotPasswordPage
   ],
