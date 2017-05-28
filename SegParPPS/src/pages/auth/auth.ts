@@ -1,45 +1,45 @@
-import { NavController } from 'ionic-angular';
-import { Component } from '@angular/core';
-import { LoginPage } from '../login/login';
-import { SigninPage } from '../signin/signin';
-import { AuthProvider } from './../../providers/auth/auth';
+// import { NavController } from 'ionic-angular';
+// import { Component } from '@angular/core';
+// import { LoginPage } from '../login/login';
+// import { SigninPage } from '../signin/signin';
+// import { AuthProvider } from './../../providers/auth/auth';
 
-import { TabsPage } from '../tabs/tabs';
+// import { TabsPage } from '../tabs/tabs';
 
-@Component({
-  selector: 'page-auth',
-  templateUrl: 'auth.html',
-})
-export class AuthPage {
- error: any;
+// @Component({
+//   selector: 'page-auth',
+//   templateUrl: 'auth.html',
+// })
+// export class AuthPage {
+//  error: any;
 
-  constructor(private navCtrl: NavController, private auth: AuthProvider) {}
+//   constructor(private navCtrl: NavController, private auth: AuthProvider) {}
 
-  ngOnInit() {
+//   ngOnInit() {
 
-  }
+//   }
 
-  openSignUpPage() {
-    this.navCtrl.push(SigninPage);
-  }
+//   openSignUpPage() {
+//     this.navCtrl.push(SigninPage);
+//   }
 
 
-  openLoginPage() {
-    this.navCtrl.push(LoginPage);
-  }
+//   openLoginPage() {
+//     this.navCtrl.push(LoginPage);
+//   }
 
-  loginUserWithFacebook() {
-    this.auth.loginWithFacebook().subscribe(data => {
-      this.navCtrl.setRoot(TabsPage);
-    }, err => {
-      this.error = err;
-    });
-  }
-  loginUserWithGoogle() {
-    this.auth.googleauth().subscribe(data => {
-      this.navCtrl.setRoot(TabsPage);
-    }, err => {
-      this.error = err;
-    });
-  }
-}
+//   loginUserWithFacebook() {
+//     this.auth.loginWithFacebook().subscribe(data => {
+//       this.navCtrl.setRoot(TabsPage);
+//     }, err => {
+//       this.error = err;
+//     });
+//   }
+//   loginUserWithGoogle() {
+//     this.auth.googleauth().subscribe(data => {
+//       this.navCtrl.setRoot(TabsPage);
+//     }, err => {
+//       this.error = err;
+//     });
+//   }
+// }

@@ -52,6 +52,7 @@ export class LoginPage {
     });
   }
 
+  //Agregado 28/05/2017******************
   ionViewDidEnter() {
     // Inhabilitar el menu
     this.menu.enable(false);
@@ -61,5 +62,21 @@ export class LoginPage {
     // Habilitar el menu
     this.menu.enable(true);
   }
+
+  loginUserWithFacebook() {
+    this.auth.loginWithFacebook().subscribe(data => {
+      this.navCtrl.setRoot(TabsPage);
+    }, err => {
+      this.error = err;
+    });
+  }
+  loginUserWithGoogle() {
+    this.auth.googleauth().subscribe(data => {
+      this.navCtrl.setRoot(TabsPage);
+    }, err => {
+      this.error = err;
+    });
+  }
+  //************************************ 
 
 }

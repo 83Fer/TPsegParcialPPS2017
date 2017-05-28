@@ -23,7 +23,7 @@
     
   </ion-row>
 
-  <form (ngSubmit)="login()" #loginForm="ngForm">
+  <form >
     <ion-list>
       <ion-item>
         <ion-label floating>Email</ion-label>
@@ -36,12 +36,23 @@
     </ion-item>
   </ion-list>
 
-    <button ion-button block [disabled]="!loginForm.form.valid"
+    <button ion-button block (click)="login()" 
       class="log-in-btn">Log In
-    </button>
-
+    </button><br>
+    
     <div padding class="error" *ngIf="error">
       <p>{{error}}</p>
+    </div>
+
+    <div>
+      <h4 style="color:blue; margin-top:130px">Registrarse con </h4>
+    <ion-fab bottom center  >
+    <button ion-fab style="margin-top:120px"><ion-icon name="arrow-dropup"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="google" (click)="loginUserWithFacebook()"><ion-icon name="logo-google"></ion-icon></button>
+      <button ion-fab color="facebook" (click)="loginUserWithGoogle()"><ion-icon name="logo-facebook"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
     </div>
   </form>
 </ion-content>
