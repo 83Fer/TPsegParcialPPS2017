@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, App } from 'ionic-angular';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { Observable } from 'rxjs/Observable';
 import { Facebook } from 'ionic-native';
 //import { GooglePlus } from '@ionic-native/google-plus';
 import firebase from 'firebase';
+
+//Vistas 
 
 // Providers
 import {DataProvider} from '../data/data';
@@ -12,7 +14,13 @@ import {DataProvider} from '../data/data';
 @Injectable()
 export class AuthProvider {
   user: any;
-  constructor(private af: AngularFire, private data: DataProvider, private platform: Platform) {
+
+  //*********************** */
+  constructor(private af: AngularFire,
+              private data: DataProvider, 
+              private platform: Platform,
+              private app: App) {
+
     this.af.database.list('pushTest').push({
       teste: 'teste'
     }).then((data) => {
@@ -157,6 +165,6 @@ export class AuthProvider {
   }
             
   logout() {
-    this.af.auth.logout();
+    this.app.getRootNav();
   }
 }
