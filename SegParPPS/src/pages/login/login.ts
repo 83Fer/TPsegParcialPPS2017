@@ -51,6 +51,25 @@ export class LoginPage {
       }, 1000);
     });
   }
+    setAdmin() {
+    this.form ={
+      email: "noelia@hotmail.com",
+      password: "23232"
+    }
+  }
+  setUsuario() {
+    this.form ={
+      email: "usuario@hotmail.com",
+      password: "huhuhu7878"
+    }
+  }
+  setProfesor() {
+    this.form ={
+      email: "profesor@hotmail.com",
+      password: "jojo34343"
+    }
+  }
+
 
   //Agregado 28/05/2017******************
   ionViewDidEnter() {

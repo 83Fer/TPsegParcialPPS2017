@@ -1,58 +1,74 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Login
+     Login
     </ion-title>
   </ion-navbar>
+  <ion-toolbar>
+    <ion-segment>
+      <ion-segment-button value="new" (click)="openSignUpPage()">
+        Regístrate
+      </ion-segment-button>
+      <ion-segment-button value="hot" (click)="openForgotPasswordPage()">
+       Olvidé mi contraseña
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content class="login-email">
-  <ion-row>
-    <button id="btnPassword" ion-button block (click)="openForgotPasswordPage()" end>
-    <div>
-        <ion-icon name="arrow-dropup-circle"></ion-icon>
-        <label style="text-align: right; width: 50%;">Olvidé mi contraseña</label>
-    </div>
-    </button>
-    <button id="btnRegistro" ion-button block (click)="openSignUpPage()" end>
-    <div>
-        <ion-icon name="arrow-dropup-circle"></ion-icon>
-        <label>Regístrate</label>
-    </div>
-    </button>
-    
-  </ion-row>
-
-  <form >
+ 
+  <form (ngSubmit)="login()" #loginForm="ngForm" class="login-box">
     <ion-list>
-      <ion-item>
+      <ion-item id="login">
         <ion-label floating>Email</ion-label>
         <ion-input type="text" [(ngModel)]="form.email" name="name"></ion-input>
       </ion-item>
 
-    <ion-item>
+    <ion-item id="login">
       <ion-label floating>Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="form.password" name="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="form.password" name="password" ></ion-input>
     </ion-item>
   </ion-list>
 
-    <button ion-button block (click)="login()" 
+    <button ion-button block [disabled]="!loginForm.form.valid"
       class="log-in-btn">Log In
-    </button><br>
-    
-    <div padding class="error" *ngIf="error">
-      <p>{{error}}</p>
+    </button>
+  
+  </form>
+  <br><br>
+  <div id="btns">
+    <button id="btnUsuario" ion-button block [disabled]="!loginForm.form.valid"
+      ion-button color="light" (click)="setUsuario()">Usuario</button>
+      <ion-row>
+      <button id="btnAdmin" ion-button block [disabled]="!loginForm.form.valid"
+      ion-button color="secondary" (click)="setAdmin()">Administrador</button>
+      <button id="btnProfesor" ion-button block [disabled]="!loginForm.form.valid"
+      ion-button color="dark" (click)="setProfesor()">Profesor</button>
+    </ion-row>
     </div>
-
-    <div>
-      <h4 style="color:blue; margin-top:130px">Registrarse con </h4>
-    <ion-fab bottom center  >
-    <button ion-fab style="margin-top:120px"><ion-icon name="arrow-dropup"></ion-icon></button>
-    <ion-fab-list side="top">
-      <button ion-fab color="google" (click)="loginUserWithFacebook()"><ion-icon name="logo-google"></ion-icon></button>
-      <button ion-fab color="facebook" (click)="loginUserWithGoogle()"><ion-icon name="logo-facebook"></ion-icon></button>
+    <br>
+  
+   <div>   
+     <h4 style="color:yellow;text-align: left">Registrarse con</h4>
+      <ion-fab id="btnRedes" center middle>
+      <button ion-fab color="danger"><ion-icon name="arrow-dropup"></ion-icon></button>
+      <ion-fab-list side="top">
+      <button ion-fab color="primary"><ion-icon name="logo-github"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="bottom">
+      <button ion-fab color="secondary" (click)="loginUserWithFacebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="left">
+      <button ion-fab color="light" (click)="loginUserWithGoogle()"><ion-icon name="logo-google"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="right">
+      <button ion-fab color="dark"><ion-icon name="logo-twitter"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
+   </div>
+   <br><br>
+     <div padding class="error" *ngIf="error">
+      <p>{{error}}</p>
     </div>
-  </form>
 </ion-content>
