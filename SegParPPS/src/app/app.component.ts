@@ -12,7 +12,7 @@ import { CuestionarioPage } from '../pages/cuestionario/cuestionario';
 
 //Providers
 import { AuthProvider } from '../providers/auth/auth';
-
+import { DataProvider } from '../providers/data/data';
 
 //Vistas
 import { LoginPage } from '../pages/login/login';
@@ -35,7 +35,8 @@ export interface PageInterface {
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-
+  isAppInitialized: boolean = false;
+  user: any;
   rootPage:any = LoginPage;
 
   pages: PageInterface[] = [
@@ -53,6 +54,7 @@ export class MyApp {
     public menu: MenuController,
     public statusBar: StatusBar,
     public auth: AuthProvider,
+    protected data: DataProvider,
     public splashScreen: SplashScreen) {
     this.initializeApp();
 
@@ -113,6 +115,22 @@ export class MyApp {
     }
     return;
   }
-
+   ngOnInit() {
+    this.platform.ready().then(() => {
+      this.auth.getUserData().subscribe(data => {
+        if (!this.isAppInitialized) {
+          this.nav.setRoot(CuestionarioPage);
+          this.isAppInitialized = true;
+        }
+        this.user = data;
+        this.data.list('pets').subscribe(data => {
+          console.log(data);
+        });
+      }, err => {
+        this.nav.setRoot(LoginPage);
+      });
+     this.statusBar.styleDefault();
+    });
+  }
   
 }

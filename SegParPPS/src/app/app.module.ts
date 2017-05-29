@@ -14,7 +14,7 @@ import { LoginPage } from '../pages/login/login';
 import { SigninPage } from '../pages/signin/signin';
 
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
-import { AuthPage } from '../pages/auth/auth';
+//import { AuthPage } from '../pages/auth/auth';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -40,7 +40,6 @@ export const firebaseConfig = {
     TabsPage,
     LoginPage,
     SigninPage,
-    AuthPage,
     ForgotPasswordPage
   ],
   imports: [
@@ -63,7 +62,6 @@ export const firebaseConfig = {
     TabsPage,
     LoginPage,
     SigninPage,
-    AuthPage,
     ForgotPasswordPage
   ],
   providers: [
