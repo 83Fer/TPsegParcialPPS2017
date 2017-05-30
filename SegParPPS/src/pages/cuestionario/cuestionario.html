@@ -7,10 +7,32 @@
     <br>
      <ion-row>
       <ion-icon name="person" item-left style="margin:auto"></ion-icon>
-    <p>Bienvenida/o {{user}}</p>
+        <p>Bienvenida/o {{user}}</p>
      </ion-row>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
-  <h1>Cuestionario (a completar)</h1>
+<ion-content padding class="fondo">
+
+  <h4>Seleccione el curso</h4>
+
+    <button class="button-inner" id="opcion1" ion-button danger (click)="seleccionarCurso()">
+      Seleccionar curso
+    </button><br>
+
+    <h4>{{curso}}</h4>
+
+  <h4>¿Qué desea hacer?</h4>
+
+    <button class="button-inner button-color" id="opcion1" ion-button danger>
+      Crear cuestionario
+    </button><br>
+
+    <button class="button-inner button2-color" id="opcion2" ion-button danger>
+      Ver cuestionarios creados
+    </button><br>
+
+    <button class="button-inner button3-color" id="opcion2" ion-button danger>
+      Ver estadísticas
+    </button>
+
 </ion-content>
