@@ -4,15 +4,15 @@
   <ion-menu id="loggedOutMenu" [content]="content">
 
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar color='dark'>
         <ion-title>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <ion-content class="outer-content">
+    <ion-content class="outer-content" style="background-color: black;">
 
       <ion-list>
-        <ion-list-header>
+        <ion-list-header color='favorite'>
           Paginas
         </ion-list-header>
         <button ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
@@ -22,17 +22,17 @@
       </ion-list>
 
       <ion-list>
-        <ion-list-header>
+        <ion-list-header color='favorite'>
           Cuenta Activa
         </ion-list-header>
-        <button ion-item menuClose *ngFor="let p of pagesLog" (click)="openPage(p)">
+        <button ion-item menuClose *ngFor="let p of pagesLog" (click)="openPage(p)" color="primary">
           <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
           {{p.title}}
         </button>
       </ion-list>
 
       <ion-list>
-        <ion-list-header>
+        <ion-list-header color='favorite'>
           Ayuda
         </ion-list-header>
         
