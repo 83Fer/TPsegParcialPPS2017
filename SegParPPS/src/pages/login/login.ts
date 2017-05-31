@@ -53,8 +53,8 @@ export class LoginPage {
   }
     setAdmin() {
     this.form ={
-      email: "noelia@hotmail.com",
-      password: "23232"
+      email: "noenieres@hotmail.com",
+      password: "qwe321"
     }
   }
   setUsuario() {

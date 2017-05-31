@@ -34,10 +34,7 @@
     <button ion-button block [disabled]="!loginForm.form.valid"
       class="log-in-btn">Log In
     </button>
-  
-  </form>
-  <br><br>
-  <div id="btns">
+    <div id="btns">
     <button id="btnUsuario" ion-button block [disabled]="!loginForm.form.valid"
       ion-button color="light" (click)="setUsuario()">Usuario</button>
       <ion-row>
@@ -47,10 +44,11 @@
       ion-button color="dark" (click)="setProfesor()">Profesor</button>
     </ion-row>
     </div>
-    <br>
+    <h4 style="color:yellow;text-align: left">Registrarse con</h4>
+  </form>
+  <br><br>
   
    <div>   
-     <h4 style="color:yellow;text-align: left">Registrarse con</h4>
       <ion-fab id="btnRedes" center middle>
       <button ion-fab color="danger"><ion-icon name="arrow-dropup"></ion-icon></button>
       <ion-fab-list side="top">
