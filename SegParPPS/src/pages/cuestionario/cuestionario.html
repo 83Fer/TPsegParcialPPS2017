@@ -13,6 +13,8 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding class="fondo">
+  
+<label *ngIf="valor == ''">
 
   <h4>Seleccione el curso</h4>
 
@@ -20,20 +22,160 @@
       Seleccionar curso
     </button><br>
 
-    <h4>{{curso}}</h4>
+<label *ngIf="muestraOpciones == 'muestra'">
+  <h4>{{curso}}</h4>
 
   <h4>¿Qué desea hacer?</h4>
 
-    <button class="button-inner button-color" id="opcion1" ion-button danger>
+    <button class="button-inner button1-color" id="opcion1" ion-button danger (click)="crearCuestionario()">
       Crear cuestionario
     </button><br>
 
-    <button class="button-inner button2-color" id="opcion2" ion-button danger>
+    <button class="button-inner button2-color" id="opcion1" ion-button danger (click)="modificarCuestionario()">
+      Modificar cuestionario
+    </button><br>
+
+    <button class="button-inner button3-color" id="opcion1" ion-button danger (click)="eliminarCuestionario()">
+      Eliminar cuestionario
+    </button><br>
+
+    <button class="button-inner button4-color" id="opcion2" ion-button danger (click)="verCuestionarios()">
       Ver cuestionarios creados
     </button><br>
 
-    <button class="button-inner button3-color" id="opcion2" ion-button danger>
-      Ver estadísticas
-    </button>
+</label>
+</label>
+<label *ngIf="valor == 'crear'">
 
+  <h4>Seleccione el curso</h4>
+
+    <button class="button-inner" id="opcion1" ion-button danger (click)="seleccionarCurso()">
+      Seleccionar curso
+    </button><br>
+    <h4>{{curso}}</h4>
+
+  <h4>¿Qué tipo de elemento usará?</h4>
+
+    <button class="button-inner button1-color" id="opcion1" ion-button danger (click)="enviarTipoDeCuestionario('checkbox')">
+      Checkbox
+    </button><br>
+
+    <button class="button-inner button2-color" id="opcion1" ion-button danger (click)="enviarTipoDeCuestionario('radiobutton')">
+      Radiobutton
+    </button><br>
+
+    <button class="button-inner button3-color" id="opcion1" ion-button danger (click)="enviarTipoDeCuestionario('input')">
+      Input
+    </button><br>
+
+</label>
+<label *ngIf="valor == 'cargarPreguntas'">
+
+  <h4>Carga de preguntas</h4>
+
+    <ion-item id="login">
+        <ion-label floating>Ingrese primer pregunta:</ion-label>
+        <ion-input type="text" name="name"></ion-input>
+    </ion-item><br>
+
+        <ion-item id="login">
+        <ion-label floating>Ingrese segunda pregunta:</ion-label>
+        <ion-input type="text" name="name"></ion-input>
+    </ion-item><br>
+
+    <ion-item id="login">
+        <ion-label floating>Ingrese tercer pregunta:</ion-label>
+        <ion-input type="text" name="name"></ion-input>
+    </ion-item><br>
+
+    <ion-item id="login">
+        <ion-label floating>Ingrese cuarta pregunta:</ion-label>
+        <ion-input type="text" name="name"></ion-input>
+    </ion-item><br>
+
+    <ion-item id="login">
+        <ion-label floating>Ingrese quinta pregunta:</ion-label>
+        <ion-input type="text" name="name"></ion-input>
+    </ion-item><br>
+
+    <ion-item id="login">
+        <ion-label floating>Ingrese sexta pregunta:</ion-label>
+        <ion-input type="text" name="name"></ion-input>
+    </ion-item><br>
+
+    <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="cargarPreguntas()">
+      Grabar preguntas
+    </button><br>
+
+</label>
+<label *ngIf="valor == 'cargarRespuestas'">
+
+  <h4>Carga de respuestas</h4>
+
+    <ion-item id="login">
+        <ion-label floating>Ingrese respuesta 1:</ion-label>
+        <ion-input type="text" name="name"></ion-input>
+    </ion-item><br>
+
+        <ion-item id="login">
+        <ion-label floating>Ingrese respuesta 2:</ion-label>
+        <ion-input type="text" name="name"></ion-input>
+    </ion-item><br>
+
+    <ion-item id="login">
+        <ion-label floating>Ingrese respuesta 3</ion-label>
+        <ion-input type="text" name="name"></ion-input>
+    </ion-item><br>
+
+    <ion-item id="login">
+        <ion-label floating>Ingrese respuesta 1:</ion-label>
+        <ion-input type="text" name="name"></ion-input>
+    </ion-item><br>
+
+        <ion-item id="login">
+        <ion-label floating>Ingrese respuesta 2:</ion-label>
+        <ion-input type="text" name="name"></ion-input>
+    </ion-item><br>
+
+    <ion-item id="login">
+        <ion-label floating>Ingrese respuesta 3</ion-label>
+        <ion-input type="text" name="name"></ion-input>
+    </ion-item><br>
+
+    <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="cargarRespuestas()">
+      Grabar respuestas
+    </button><br>
+
+</label>
+<label *ngIf="valor == 'grabarCuestionario'">
+
+  <h4>¿Desea grabar el cuestionario?</h4><br>
+
+  <div id="list">
+    <h5>Pregunta 1:</h5>
+    <ul>
+      <li>respuesta 1</li>
+      <li>respuesta 2</li>
+      <li>respuesta 3</li>
+    </ul>
+  </div>
+
+  <div id="list">
+    <h5>Pregunta 2:</h5>
+    <ul>
+      <li>respuesta 1</li>
+      <li>respuesta 2</li>
+      <li>respuesta 3</li>
+    </ul>
+  </div>
+
+  <button class="button-inner button5-color" id="pregunta1" ion-button danger (click)="cargarRespuestas()">
+    Grabar cuestionario
+  </button><br>
+
+  <button class="button-inner button6-color" id="opcion1" ion-button danger (click)="cancelarCarga()">
+      Cancelar
+  </button><br>
+
+</label>
 </ion-content>

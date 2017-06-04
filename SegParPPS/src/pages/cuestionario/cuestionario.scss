@@ -5,7 +5,7 @@ h4{
     text-align: center;
 } 
 
-.button-color{
+.button1-color{
     background-color: #08088A;
 } 
 
@@ -14,13 +14,40 @@ h4{
 } 
 
 .button3-color{
+    background-color: #DF013A;
+} 
+
+.button4-color{
     background-color: #DF0174;
+} 
+
+.button5-color{
+    background-color: #2CE126;
+} 
+
+.button6-color{
+    background-color: #F30B0B;
 } 
 
 .fondo{
     background-color: #E0E6F8;
 } 
+
 .toolbar-background {
   background-color: #f53d3d;
+}
+
+#list {
+  width: 170px;
+  margin: 10px auto;
+  font-size: 14px;
+}
+#list ul {
+  margin-top: 10px;
+}
+#list ul li {
+  text-align: left;
+  list-style: disc;
+  margin: 10px 0px;
 }
 }
