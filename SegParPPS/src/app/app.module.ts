@@ -9,6 +9,9 @@ import { EstadisticasPage } from '../pages/estadisticas/estadisticas';
 import { CuestionarioPage } from '../pages/cuestionario/cuestionario';
 import { TabsPage } from '../pages/tabs/tabs';
 
+//Graficos
+import { ChartsModule } from 'ng2-charts';
+
 //Vistas
 import { LoginPage } from '../pages/login/login';
 import { SigninPage } from '../pages/signin/signin';
@@ -44,6 +47,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    ChartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp, {}, {
       links: [

@@ -5,22 +5,128 @@
     </button>
     <ion-title>Estadisticas</ion-title>
   </ion-navbar>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js" charset="utf-8"></script>
+
+
 </ion-header>
 
 <ion-content>
-  <div class="grafic">
+
+  <div class="center-on-page">
   
-  <div class="col-1">
-    <span>35%</span>
+  
+  <div class="select">
+    <select name="slct" id="slct">
+      <option>Cuestionarios</option>
+      <option *ngFor="let item of items" >{{item.cuestionario}}</option>
+    </select>
   </div>
   
-  <div class="col-2">
-    <span>70%</span>
-  </div>
+</div>
   
-  <div class="col-3">
-    <span>45%</span>
+  
+<!-- Botones de la Vista******************************************************-->
+   
+<div class='buttons'>
+      <a *ngIf="btnActivo1=='active'" (click)="BtnActivado('a1')" class="active" style="font-size:30px;">
+        <ion-icon name="stats"></ion-icon>
+      </a>
+      <a *ngIf="btnInactivo1=='noActive'" (click)="BtnActivado('a2')"  style="font-size:30px;">
+        <ion-icon name="stats"></ion-icon>
+      </a>
+      <a *ngIf="btnActivo2=='active'" (click)="BtnActivado('b1')" class="active"  style="font-size:30px;">
+        <ion-icon name="pie"></ion-icon>
+      </a>
+      <a *ngIf="btnInactivo2=='noActive'" (click)="BtnActivado('b2')"  style="font-size:30px;">
+        <ion-icon name="pie"></ion-icon>
+      </a>
+      <a *ngIf="btnActivo3=='active'" (click)="BtnActivado('c1')" class="active" style="font-size:30px;">
+       <ion-icon name="grid"></ion-icon>
+      </a>
+      <a *ngIf="btnInactivo3=='noActive'" (click)="BtnActivado('c2')" style="font-size:30px;">
+       <ion-icon name="grid"></ion-icon>
+      </a>
+    </div><br><br>
+<!-- Botones de la Vista******************************************************-->
+
+<!-- Vista 1 ******************************************************-->
+
+<div *ngIf="muestra=='vista1'">
+ <h4>Porcentaje de <small>preguntas contestadas</small></h4>
+    <hr>
+  <div class="chart-canvas">
+    <div class="bar" data-value="45"><span class="label">1°</span></div>
+    <div class="bar" data-value="55"><span class="label">2°</span></div>
+    <div class="bar" data-value="-25"><span class="label">3°</span></div>
+    <div class="bar" data-value="20"><span class="label">4°</span></div>
+    <div class="bar" data-value="75"><span class="label">5°</span></div>
+    <div class="bar" data-value="30"><span class="label">6°</span></div>
   </div>
 </div>
-     
+<!-- Vista 1******************************************************-->
+
+<!-- Vista 2******************************************************-->
+
+<div *ngIf="muestra=='vista2'" style="display: block">
+  <h4>Porcentaje de <small>edades de los encuestados</small></h4>
+    <hr>
+  <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+
+      <table class="table table-responsive table-condensed">
+      <tr>
+        <th *ngFor="let label of doughnutChartLabels">{{label}}</th>
+      </tr>
+      <tr >
+        <td *ngFor="let label of porcLista">{{label.data}}%</td>
+      </tr>
+    </table>
+</div>
+
+<!-- Vista 2******************************************************-->
+
+
+<!-- Vista 3******************************************************-->
+
+<div *ngIf="muestra=='vista3'" class="container">
+    <h4>Porcentaje de <small>respuestas contestadas por sexo</small></h4>
+    <hr>
+
+    <div class="row">
+  <div class="col-md-6">
+    <div style="display: block;">
+    <canvas baseChart width="400" height="400"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+  <div class="col-md-6" style="margin-bottom: 10px">
+    <!--<table class="table table-responsive table-condensed">
+      <tr>
+        <th *ngFor="let label of lineChartLabels">{{label}}</th>
+      </tr>
+      <tr *ngFor="let d of lineChartData">
+        <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
+      </tr>
+    </table>-->
+    <button class="btn btn-primary btn-block" (click)="randomize()">Siguiente pregunta</button>
+  </div>
+</div>
+
+  </div>
+
+<!-- Vista 3******************************************************-->
+
 </ion-content>
+
