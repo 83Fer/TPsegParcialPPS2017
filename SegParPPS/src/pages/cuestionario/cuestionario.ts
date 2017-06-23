@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { AuthProvider } from './../../providers/auth/auth';
 
+// Plugins
+import { Vibration } from '@ionic-native/vibration';
+import { NativeAudio } from '@ionic-native/native-audio';
+
 @Component({
   selector: 'page-cuestionario',
   templateUrl: 'cuestionario.html'
@@ -18,12 +22,15 @@ export class CuestionarioPage {
   valor: string= "";
   muestraOpciones: string= "";
 
-  constructor(private auth: AuthProvider,public alertCtrl: AlertController,) {
+  constructor(private auth: AuthProvider,public alertCtrl: AlertController,private vibration: Vibration,
+                private nativeAudio: NativeAudio) {
    
     this.auth.getUserData().subscribe(data => {
       this.user=data.name;
       //console.log(this.user);  
     });
+
+      this.nativeAudio.preloadSimple('empate', 'assets/sound/correcto.mp3');
   }
 
   seleccionarCurso(){
@@ -67,10 +74,13 @@ export class CuestionarioPage {
                     ]
                   });
     ventana.present(ventana);
+    this.vibration.vibrate(100);
   }
 
   crearCuestionario(){
     this.valor= "crear";
+    this.nativeAudio.play('correcto', () => console.log("correcto"));
+    this.vibration.vibrate(100);
   }
 
   modificarCuestionario(){
@@ -98,6 +108,7 @@ export class CuestionarioPage {
                   ]
     });
     ventana.present(ventana);
+    this.vibration.vibrate(100);
   }
 
   eliminarCuestionario(){
@@ -125,6 +136,7 @@ export class CuestionarioPage {
                   ]
         });
     ventana.present(ventana);
+    this.vibration.vibrate(100);
   }
 
   verCuestionarios(){

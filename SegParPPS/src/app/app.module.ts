@@ -16,6 +16,10 @@ import { ChartsModule } from 'ng2-charts';
 import { LoginPage } from '../pages/login/login';
 import { SigninPage } from '../pages/signin/signin';
 
+//Plugins
+import { Vibration } from '@ionic-native/vibration';
+import { NativeAudio } from '@ionic-native/native-audio';
+
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 //import { AuthPage } from '../pages/auth/auth';
 
@@ -71,6 +75,8 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    Vibration,
+    NativeAudio,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider,
     AuthProvider
