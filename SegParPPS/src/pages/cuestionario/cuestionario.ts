@@ -169,8 +169,10 @@ export class CuestionarioPage {
   }
 
   //////////////////////////////////////////////////////////////// Tipo de Cuestionario
-  enviarTipoDeCuestionario(){
+  enviarTipoDeCuestionario(tipo){
     this.valor= "cargarPreguntas";
+    this.tipoCuestionario= tipo;
+    console.info(this.tipoCuestionario, this.nombreCuestionario);
   }
 
   //////////////////////////////////////////////////////////////// Cargar Preguntas
@@ -188,4 +190,43 @@ export class CuestionarioPage {
     this.muestraOpciones= "";
     this.valor= "";
   }
+
+  //////////////////////////////////////////////////////////////// Guardar Cuestionario
+  guardarCuestionario(){
+    let nuevoCuestionario={
+                      nombreCuestionario:this.nombreCuestionario,
+                      cursoCuestionario:this.curso,
+                      tipoCuestionario:this.tipoCuestionario,
+                    };
+
+    let nuevasPreguntas={
+                      pregunta1:this.pregunta1,
+                      pregunta2:this.pregunta2,
+                      pregunta3:this.pregunta3,
+                      pregunta4:this.pregunta4,
+                    };
+
+    let nuevasRespuestas={
+                      pregunta1respuesta1:this.pregunta1respuesta1,
+                      pregunta1respuesta2:this.pregunta1respuesta2,
+                      pregunta1respuesta3:this.pregunta1respuesta3,
+
+                      pregunta2respuesta1:this.pregunta2respuesta1,
+                      pregunta2respuesta2:this.pregunta2respuesta2,
+                      pregunta2respuesta3:this.pregunta2respuesta3,
+
+                      pregunta3respuesta1:this.pregunta3respuesta1,
+                      pregunta3respuesta2:this.pregunta3respuesta2,
+                      pregunta3respuesta3:this.pregunta3respuesta3,
+
+                      pregunta4respuesta1:this.pregunta4respuesta1,
+                      pregunta4respuesta2:this.pregunta4respuesta2,
+                      pregunta4respuesta3:this.pregunta4respuesta3,
+                    };
+    
+    // Hacer SERVICIO
+
+    //this.datosPizz.agregarPizza(nuevoCuestionario, nuevasPreguntas, nuevasRespuestas);
+  }
+
 }
