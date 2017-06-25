@@ -34,6 +34,7 @@
     <button ion-button block [disabled]="!loginForm.form.valid"
       class="log-in-btn">Log In
     </button>
+  </form>
     <div id="btns">
     <button id="btnUsuario" ion-button block [disabled]="!loginForm.form.valid"
       ion-button color="light" (click)="setUsuario()">Usuario</button>
@@ -45,14 +46,13 @@
     </ion-row>
     </div>
     <h4 style="color:yellow;text-align: left">Registrarse con</h4>
-  </form>
   <br><br>
   
    <div>   
       <ion-fab id="btnRedes" center middle>
       <button ion-fab color="danger"><ion-icon name="arrow-dropup"></ion-icon></button>
       <ion-fab-list side="top">
-      <button ion-fab color="primary"><ion-icon name="logo-github"></ion-icon></button>
+      <button ion-fab color="primary" (click)="loginUserWithGitHub()"><ion-icon name="logo-github"></ion-icon></button>
     </ion-fab-list>
     <ion-fab-list side="bottom">
       <button ion-fab color="secondary" (click)="loginUserWithFacebook()"><ion-icon name="logo-facebook"></ion-icon></button>
@@ -60,9 +60,7 @@
     <ion-fab-list side="left">
       <button ion-fab color="light" (click)="loginUserWithGoogle()"><ion-icon name="logo-google"></ion-icon></button>
     </ion-fab-list>
-    <ion-fab-list side="right">
-      <button ion-fab color="dark"><ion-icon name="logo-twitter"></ion-icon></button>
-    </ion-fab-list>
+    
   </ion-fab>
    </div>
    <br><br>

@@ -96,6 +96,13 @@ export class LoginPage {
       this.error = err;
     });
   }
+  loginUserWithGitHub(){
+    this.auth.LoginGit().subscribe(data => {
+      this.navCtrl.setRoot(TabsPage);
+    }, err => {
+      this.error = err;
+    });
+  }
   //************************************ 
 
 }
