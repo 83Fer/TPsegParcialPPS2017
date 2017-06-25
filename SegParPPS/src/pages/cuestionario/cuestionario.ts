@@ -12,6 +12,7 @@ import { NativeAudio } from '@ionic-native/native-audio';
 })
 export class CuestionarioPage {
 
+  //////////////////////////////////////////// Variables
   public user: string;
 
   tituloCursos: string= "Cursos";
@@ -22,6 +23,26 @@ export class CuestionarioPage {
   valor: string= "";
   muestraOpciones: string= "";
 
+  nombreCuestionario: string= "";
+  tipoCuestionario: string= "";
+  pregunta1: string= "";
+  pregunta2: string= "";
+  pregunta3: string= "";
+  pregunta4: string= "";
+  pregunta1respuesta1: string= "";
+  pregunta1respuesta2: string= "";
+  pregunta1respuesta3: string= "";
+  pregunta2respuesta1: string= "";
+  pregunta2respuesta2: string= "";
+  pregunta2respuesta3: string= "";
+  pregunta3respuesta1: string= "";
+  pregunta3respuesta2: string= "";
+  pregunta3respuesta3: string= "";
+  pregunta4respuesta1: string= "";
+  pregunta4respuesta2: string= "";
+  pregunta4respuesta3: string= "";
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////// Constructor
   constructor(private auth: AuthProvider,public alertCtrl: AlertController,private vibration: Vibration,
                 private nativeAudio: NativeAudio) {
    
@@ -33,6 +54,7 @@ export class CuestionarioPage {
       this.nativeAudio.preloadSimple('empate', 'assets/sound/correcto.mp3');
   }
 
+  //////////////////////////////////////////////////////////////// Seleccionar Curso
   seleccionarCurso(){
     let ventana = this.alertCtrl.create({
                   title: this.tituloCursos,
@@ -77,6 +99,7 @@ export class CuestionarioPage {
     this.vibration.vibrate(100);
   }
 
+  //////////////////////////////////////////////////////////////// Crear Cuestionario
   crearCuestionario(){
     this.valor= "crear";
     this.nativeAudio.play('correcto', () => console.log("correcto"));
@@ -111,6 +134,7 @@ export class CuestionarioPage {
     this.vibration.vibrate(100);
   }
 
+  //////////////////////////////////////////////////////////////// Eliminar Cuestionario
   eliminarCuestionario(){
         this.muestraOpciones= "";
         let ventana = this.alertCtrl.create({
@@ -139,22 +163,27 @@ export class CuestionarioPage {
     this.vibration.vibrate(100);
   }
 
+  //////////////////////////////////////////////////////////////// Ver Cuestionarios
   verCuestionarios(){
     
   }
 
+  //////////////////////////////////////////////////////////////// Tipo de Cuestionario
   enviarTipoDeCuestionario(){
     this.valor= "cargarPreguntas";
   }
 
+  //////////////////////////////////////////////////////////////// Cargar Preguntas
   cargarPreguntas(){
     this.valor= "cargarRespuestas";
   }
 
+  //////////////////////////////////////////////////////////////// Cargar respuestas
   cargarRespuestas(){
     this.valor= "grabarCuestionario";
   }
 
+  //////////////////////////////////////////////////////////////// Cancelar Carga
   cancelarCarga(){
     this.muestraOpciones= "";
     this.valor= "";

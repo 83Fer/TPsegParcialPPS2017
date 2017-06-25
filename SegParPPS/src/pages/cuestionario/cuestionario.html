@@ -75,32 +75,22 @@
 
     <ion-item id="pregunta1">
         <ion-label floating>Ingrese primer pregunta:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta1" type="text" name="name"></ion-input>
     </ion-item><br>
 
     <ion-item id="pregunta2">
         <ion-label floating>Ingrese segunda pregunta:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta2" type="text" name="name"></ion-input>
     </ion-item><br>
 
     <ion-item id="pregunta3">
         <ion-label floating>Ingrese tercer pregunta:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta3" type="text" name="name"></ion-input>
     </ion-item><br>
 
     <ion-item id="pregunta4">
         <ion-label floating>Ingrese cuarta pregunta:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
-    </ion-item><br>
-
-    <ion-item id="pregunta5">
-        <ion-label floating>Ingrese quinta pregunta:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
-    </ion-item><br>
-
-    <ion-item id="pregunta6">
-        <ion-label floating>Ingrese sexta pregunta:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta4" type="text" name="name"></ion-input>
     </ion-item><br>
 
     <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="cargarPreguntas()">
@@ -112,100 +102,68 @@
 
   <h4>Carga de respuestas</h4>
 
-    <h6>Pregunta 1</h6>
+    <h6>{{pregunta1}}</h6>
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 1:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta1respuesta1" type="text" name="name"></ion-input>
     </ion-item><br>
 
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 2:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta1respuesta2" type="text" name="name"></ion-input>
     </ion-item><br>
 
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 3</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta1respuesta3" type="text" name="name"></ion-input>
     </ion-item><br>
 
-    <h6>Pregunta 2</h6>
+    <h6>{{pregunta2}}</h6>
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 1:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta2respuesta1" type="text" name="name"></ion-input>
     </ion-item><br>
 
         <ion-item id="login">
         <ion-label floating>Ingrese respuesta 2:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta2respuesta2" type="text" name="name"></ion-input>
     </ion-item><br>
 
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 3</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta2respuesta3" type="text" name="name"></ion-input>
     </ion-item><br>
 
-    <h6>Pregunta 3</h6>
+    <h6>{{pregunta3}}</h6>
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 1:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta3respuesta1" type="text" name="name"></ion-input>
     </ion-item><br>
 
         <ion-item id="login">
         <ion-label floating>Ingrese respuesta 2:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta3respuesta2" type="text" name="name"></ion-input>
     </ion-item><br>
 
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 3</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta3respuesta3" type="text" name="name"></ion-input>
     </ion-item><br>
 
-    <h6>Pregunta 4</h6>
+    <h6>{{pregunta4}}</h6>
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 1:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta4respuesta1" type="text" name="name"></ion-input>
     </ion-item><br>
 
         <ion-item id="login">
         <ion-label floating>Ingrese respuesta 2:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta4respuesta2" type="text" name="name"></ion-input>
     </ion-item><br>
 
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 3</ion-label>
-        <ion-input type="text" name="name"></ion-input>
-    </ion-item><br>
-
-    <h6>Pregunta 5</h6>
-    <ion-item id="login">
-        <ion-label floating>Ingrese respuesta 1:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
-    </ion-item><br>
-
-        <ion-item id="login">
-        <ion-label floating>Ingrese respuesta 2:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
-    </ion-item><br>
-
-    <ion-item id="login">
-        <ion-label floating>Ingrese respuesta 3</ion-label>
-        <ion-input type="text" name="name"></ion-input>
-    </ion-item><br>
-
-    <h6>Pregunta 6</h6>
-    <ion-item id="login">
-        <ion-label floating>Ingrese respuesta 1:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
-    </ion-item><br>
-
-        <ion-item id="login">
-        <ion-label floating>Ingrese respuesta 2:</ion-label>
-        <ion-input type="text" name="name"></ion-input>
-    </ion-item><br>
-
-    <ion-item id="login">
-        <ion-label floating>Ingrese respuesta 3</ion-label>
-        <ion-input type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta4respuesta3" type="text" name="name"></ion-input>
     </ion-item><br>
 
     <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="cargarRespuestas()">
@@ -218,56 +176,38 @@
   <h4>¿Desea grabar el cuestionario?</h4><br>
 
   <div id="list">
-    <h5>Pregunta 1:</h5>
+    <h5>{{pregunta1}}</h5>
     <ul>
-      <li>respuesta 1</li>
-      <li>respuesta 2</li>
-      <li>respuesta 3</li>
+      <li>{{pregunta1respuesta1}}</li>
+      <li>{{pregunta1respuesta2}}</li>
+      <li>{{pregunta1respuesta3}}</li>
     </ul>
   </div>
 
   <div id="list">
-    <h5>Pregunta 2:</h5>
+    <h5>{{pregunta2}}</h5>
     <ul>
-      <li>respuesta 1</li>
-      <li>respuesta 2</li>
-      <li>respuesta 3</li>
+      <li>{{pregunta2respuesta1}}</li>
+      <li>{{pregunta2respuesta2}}</li>
+      <li>{{pregunta2respuesta3}}</li>
     </ul>
   </div>
 
   <div id="list">
-    <h5>Pregunta 3:</h5>
+    <h5>{{pregunta3}}</h5>
     <ul>
-      <li>respuesta 1</li>
-      <li>respuesta 2</li>
-      <li>respuesta 3</li>
+      <li>{{pregunta3respuesta1}}</li>
+      <li>{{pregunta3respuesta2}}</li>
+      <li>{{pregunta3respuesta3}}</li>
     </ul>
   </div>
 
   <div id="list">
-    <h5>Pregunta 4:</h5>
+    <h5>{{pregunta1}}</h5>
     <ul>
-      <li>respuesta 1</li>
-      <li>respuesta 2</li>
-      <li>respuesta 3</li>
-    </ul>
-  </div>
-
-  <div id="list">
-    <h5>Pregunta 5:</h5>
-    <ul>
-      <li>respuesta 1</li>
-      <li>respuesta 2</li>
-      <li>respuesta 3</li>
-    </ul>
-  </div>
-
-  <div id="list">
-    <h5>Pregunta 6:</h5>
-    <ul>
-      <li>respuesta 1</li>
-      <li>respuesta 2</li>
-      <li>respuesta 3</li>
+      <li>{{pregunta4respuesta1}}</li>
+      <li>{{pregunta4respuesta2}}</li>
+      <li>{{pregunta4respuesta3}}</li>
     </ul>
   </div>
 
