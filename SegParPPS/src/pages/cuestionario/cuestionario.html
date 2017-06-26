@@ -47,12 +47,13 @@
 </label>
 <label *ngIf="valor == 'crear'">
 
-  <h4>Seleccione el curso</h4>
-
-    <button class="button-inner" id="opcion1" ion-button danger (click)="seleccionarCurso()">
-      Seleccionar curso
-    </button><br>
     <h4>{{curso}}</h4>
+
+    <h4>Nombre del cuestionario</h4>
+    <ion-item id="login">
+        <ion-label floating>Ingrese el nombre del cuestionario</ion-label>
+        <ion-input [(ngModel)] = "nombreCuestionario" type="text" name="name"></ion-input>
+    </ion-item><br>
 
   <h4>¿Qué tipo de elemento usará?</h4>
 
