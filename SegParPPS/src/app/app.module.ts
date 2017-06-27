@@ -2,6 +2,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
+import { HttpModule } from '@angular/http';
+
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
@@ -28,6 +30,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataProvider } from '../providers/data/data';
 import { AuthProvider } from '../providers/auth/auth';
 import { AngularFireModule } from 'angularfire2';
+import { CuestionarioServiceProvider } from '../providers/cuestionario-service/cuestionario-service';
+import { PreguntasServiceProvider } from '../providers/preguntas-service/preguntas-service';
+import { RespuestasServiceProvider } from '../providers/respuestas-service/respuestas-service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyD716uvmyEsUV4tTBKT-tN9GLZSrM4tTIs",
@@ -50,6 +55,7 @@ export const firebaseConfig = {
     ForgotPasswordPage
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     ChartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
@@ -79,7 +85,10 @@ export const firebaseConfig = {
     NativeAudio,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider,
-    AuthProvider
+    AuthProvider,
+    CuestionarioServiceProvider,
+    PreguntasServiceProvider,
+    RespuestasServiceProvider
   ]
 })
 export class AppModule {}
