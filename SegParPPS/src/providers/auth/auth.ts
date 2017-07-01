@@ -137,7 +137,7 @@ export class AuthProvider {
       });
     });
   }
-  LoginGit(){
+ LoginGit(){
       
   return Observable.create(observer => {
       this.af.auth.login({
@@ -145,7 +145,15 @@ export class AuthProvider {
       method: AuthMethods.Popup
     }).then((authData) => {
         observer.next(authData);
+        this.af.database.list('users').update(authData.auth.uid, {
+            name: authData.auth.displayName,
+            email: authData.auth.email,
+            provider: 'github',
+            image: authData.auth.photoURL
+          });
+          this.user = authData.auth.email;
       }).catch((error) => {
+        console.info("error", error);
         observer.error(error);
       });
     });
@@ -158,11 +166,19 @@ export class AuthProvider {
       method: AuthMethods.Popup
     }).then((authData) => {
         observer.next(authData);
+         this.af.database.list('users').update(authData.auth.uid, {
+            name: authData.auth.displayName,
+            email: authData.auth.email,
+            provider: 'google',
+            image: authData.auth.photoURL
+          });
+          this.user = authData.auth.email;
       }).catch((error) => {
         observer.error(error);
       });
     });
   }
+            
             
   logout() {
     this.app.getRootNav();

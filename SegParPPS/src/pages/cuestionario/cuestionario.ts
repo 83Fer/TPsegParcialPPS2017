@@ -69,8 +69,8 @@ export class CuestionarioPage {
               private nativeAudio: NativeAudio) {
    
     this.auth.getUserData().subscribe(data => {
-      this.user=data.name;
-      //console.log(this.user);  
+      this.user=data.email;
+      //console.log(this.user); 
     });
 
       this.nativeAudio.preloadSimple('empate', 'assets/sound/correcto.mp3');
