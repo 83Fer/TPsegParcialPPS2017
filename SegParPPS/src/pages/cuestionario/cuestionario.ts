@@ -427,6 +427,7 @@ export class CuestionarioPage {
   cambiarVistaAlumno(){
     this.perfil= "alumno";
     this.valor= "";
+    this.cargaCuestionario= "";
   }
 
 }
