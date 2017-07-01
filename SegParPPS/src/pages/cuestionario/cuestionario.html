@@ -1,3 +1,4 @@
+<!--Header-->
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -14,8 +15,11 @@
 </ion-header>
 <ion-content padding class="fondo">
   
-<label *ngIf="valor == ''">
+<!--Pantalla Principal-->
 
+<!--ALUMNO-->
+<label *ngIf="perfil == 'profesor'">
+<label *ngIf="valor == ''">
   <h4>Seleccione el curso</h4>
 
     <button class="button-inner" id="opcion1" ion-button danger (click)="seleccionarCurso()">
@@ -45,6 +49,8 @@
 
 </label>
 </label>
+
+<!--Crear cuestionario-->
 <label *ngIf="valor == 'crear'">
 
     <h4>{{curso}}</h4>
@@ -70,8 +76,9 @@
     </button><br>
 
 </label>
-<label *ngIf="valor == 'cargarPreguntas'">
 
+<!--Carga de preguntas-->
+<label *ngIf="valor == 'cargarPreguntas'">
   <h4>Carga de preguntas</h4>
 
     <ion-item id="pregunta1">
@@ -99,8 +106,8 @@
     </button><br>
 
 </label>
+<!--Carga de respuestas-->
 <label *ngIf="valor == 'cargarRespuestas'">
-
   <h4>Carga de respuestas</h4>
 
     <h6>{{pregunta1}}</h6>
@@ -172,6 +179,8 @@
     </button><br>
 
 </label>
+
+<!--Grabar cuestionario-->
 <label *ngIf="valor == 'grabarCuestionario'">
 
   <h4>¿Desea grabar el cuestionario?</h4><br>
@@ -220,5 +229,81 @@
       Cancelar
   </button><br>
 
+  <button class="button-inner button4-color" id="opcion1" ion-button danger (click)="cambiarVistaAlumno()">
+      Ver Alumno
+  </button><br>
+
 </label>
+</label>
+
+<!--ALUMNO-->
+<label *ngIf="perfil == 'alumno'">
+<label *ngIf="valor == ''">
+  <h4>Seleccione el cuestionario</h4>
+
+    <button class="button-inner" id="opcion1" ion-button danger (click)="seleccionarCuestionarioResp()">
+      Seleccionar cuestionario
+    </button><br>
+</label>
+
+<!--Cuestionario-->
+<label *ngIf="cargaCuestionario == 'muestra'">
+  <h4>Cuestionario {{nombreCuestionario}}</h4>
+
+    <h6>{{pregunta1}}</h6>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">{{pregunta1respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">{{pregunta1respuesta2}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">{{pregunta1respuesta3}}
+    </label><br><br>
+
+    <h6>{{pregunta2}}</h6>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">{{pregunta2respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">{{pregunta2respuesta2}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">{{pregunta2respuesta3}}
+    </label><br><br>
+
+    <h6>{{pregunta3}}</h6>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">{{pregunta3respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">{{pregunta3respuesta2}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">{{pregunta3respuesta3}}
+    </label><br><br>
+
+    <h6>{{pregunta4}}</h6>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">{{pregunta4respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">{{pregunta4respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">{{pregunta4respuesta1}}
+    </label><br><br>
+
+    <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="enviarRespuestas()">
+      Enviar respuestas
+    </button><br>
+
+    <button class="button-inner button5-color" id="opcion1" ion-button danger (click)="cambiarVistaProfesor()">
+      Ver Profesor
+    </button><br>
+
+</label>
+</label>
+
+
 </ion-content>

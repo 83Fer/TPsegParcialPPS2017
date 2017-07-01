@@ -20,14 +20,21 @@ export class CuestionarioPage {
   //////////////////////////////////////////// Variables
   public user: string;
 
-  tituloCursos: string= "Cursos";
-  tituloCuestionarios: string= "Cuestionarios";
-	mensaje: string= "";
+  // Variables validación
   curso: string= "";
   cuestionario: string= "";
   valor: string= "";
   muestraOpciones: string= "";
+  cargaCuestionario: string= "";
 
+  tituloCursos: string= "Cursos";
+  tituloCuestionarios: string= "Cuestionarios";
+	mensaje: string= "";
+
+  // Perfil
+  perfil: string= "alumno";
+
+  // Variables Cuestionario
   nombreCuestionario: string= "Titulo";
   tipoCuestionario: string= "chk";
   pregunta1: string= "1pr";
@@ -47,8 +54,10 @@ export class CuestionarioPage {
   pregunta4respuesta2: string= "2resp 4preg";
   pregunta4respuesta3: string= "3resp 4preg";
 
+  // Vista Alumno
+  cuestionarioResp: string= "";
 
-  //Variable de Id cuestionario maximo
+  // Variable de Id cuestionario maximo
   idMaxC: string;
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////// Constructor
@@ -66,6 +75,8 @@ export class CuestionarioPage {
 
       this.nativeAudio.preloadSimple('empate', 'assets/sound/correcto.mp3');
   }
+
+// PROFESOR /////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
   //////////////////////////////////////////////////////////////// Seleccionar Curso
   seleccionarCurso(){
@@ -363,6 +374,59 @@ export class CuestionarioPage {
     this.datosApiRespuestas.AgregarRespuesta(rsp3prg4);
 
                       
+  }
+
+// ALUMNO ///////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
+  seleccionarCuestionarioResp(){
+    let ventana = this.alertCtrl.create({
+                  title: this.tituloCuestionarios,
+                  message: this.mensaje, 
+                  buttons:[
+                    {
+                      text: "Cuest. Programación I",
+                      handler: data => {
+                        this.cuestionarioResp= "Cuest. Programación I";
+                        this.cargaCuestionario= "muestra";
+                        }
+                      },
+                      
+                    {
+                      text: "Cuest. Programación II",
+                      handler: data => {
+                        this.cuestionarioResp= "Cuest. Programación II";
+                        this.cargaCuestionario= "muestra";
+                        }
+                      },
+                    {
+                      text: "Cuest. Base de Datos I",
+                      handler: data => {
+                        this.cuestionarioResp= "Cuest. Base de Datos I";
+                        this.cargaCuestionario= "muestra";
+                        }
+                      },
+                    {
+                      text: "Cuest. Investigación Operativa",
+                      handler: data => {
+                        this.cuestionarioResp= "Cuest.o Investigación Operativa";
+                        this.cargaCuestionario= "muestra";
+                        }
+                      }
+                    ]
+                  });
+    ventana.present(ventana);
+    this.vibration.vibrate(100);
+  }
+
+// Vistas /////////////////////////////////////////////////////////////////////////////////////////////////////////
+  cambiarVistaProfesor(){
+    this.perfil= "profesor";
+    this.valor= "";
+  }
+
+  cambiarVistaAlumno(){
+    this.perfil= "alumno";
+    this.valor= "";
   }
 
 }
