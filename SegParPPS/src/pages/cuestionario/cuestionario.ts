@@ -36,7 +36,7 @@ export class CuestionarioPage {
 	mensaje: string= "";
 
   // Perfil
-  perfil: string= "alumno";
+  perfil: string= "";
 
   // Variables Cuestionario
   nombreCuestionario: string= "Titulo";
@@ -79,10 +79,20 @@ export class CuestionarioPage {
    
     this.auth.getUserData().subscribe(data => {
       this.user=data.email;
-      //console.log(this.user); 
+      console.log("Usuario: " + this.user); 
+
+      if(this.user == "usuario@hotmail.com"){
+        this.perfil= "alumno";
+        console.log("Perfil: " + this.perfil); 
+      }
+
+      if(this.user == "profesor@hotmail.com"){
+        this.perfil= "profesor";
+        console.log("Perfil: " + this.perfil); 
+      }
     });
 
-      this.nativeAudio.preloadSimple('empate', 'assets/sound/correcto.mp3');
+      this.nativeAudio.preloadSimple('correcto', 'assets/sound/correcto.mp3');
   }
 
 // PROFESOR /////////////////////////////////////////////////////////////////////////////////////////////////////// 
@@ -147,7 +157,6 @@ export class CuestionarioPage {
     //******************************
 
     this.valor= "crear";
-    this.nativeAudio.play('correcto', () => console.log("correcto"));
     this.vibration.vibrate(100);
   }
 
@@ -223,11 +232,13 @@ export class CuestionarioPage {
   //////////////////////////////////////////////////////////////// Cargar Preguntas
   cargarPreguntas(){
     this.valor= "cargarRespuestas";
+    this.nativeAudio.play('correcto', () => console.log("correcto"));
   }
 
   //////////////////////////////////////////////////////////////// Cargar respuestas
   cargarRespuestas(){
     this.valor= "grabarCuestionario";
+    this.nativeAudio.play('correcto', () => console.log("correcto"));
   }
 
   //////////////////////////////////////////////////////////////// Cancelar Carga
@@ -446,12 +457,16 @@ export class CuestionarioPage {
     this.valor= "muestraMapa";
   }
 
-  verRespondidos(){
-    this.valor= "respondidos";
-  }
-
   volver(){
     this.valor= "";
   }
+
+  verRespondidos(){
+    this.valor= "respondidos";
+
+
+  }
+
+
 
 }
