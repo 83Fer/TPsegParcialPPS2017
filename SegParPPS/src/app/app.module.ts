@@ -22,6 +22,9 @@ import { SigninPage } from '../pages/signin/signin';
 import { Vibration } from '@ionic-native/vibration';
 import { NativeAudio } from '@ionic-native/native-audio';
 
+// Maps
+import { AgmCoreModule } from '@agm/core';
+
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 //import { AuthPage } from '../pages/auth/auth';
 
@@ -58,6 +61,9 @@ export const firebaseConfig = {
     HttpModule,
     BrowserModule,
     ChartsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCt4ypL9y1DT_iq4m6dNaLYyIle0jX9QBg'
+    }),
     AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp, {}, {
       links: [

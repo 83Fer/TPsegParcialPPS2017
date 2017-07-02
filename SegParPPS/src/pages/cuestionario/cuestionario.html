@@ -17,16 +17,16 @@
   
 <!--Pantalla Principal-->
 
-<!--ALUMNO-->
-<label *ngIf="perfil == 'profesor'">
-<label *ngIf="valor == ''">
+<!--PROFESOR-->
+<div *ngIf="perfil == 'profesor'">
+<div *ngIf="valor == ''">
   <h4>Seleccione el curso</h4>
 
     <button class="button-inner" id="opcion1" ion-button danger (click)="seleccionarCurso()">
       Seleccionar curso
     </button><br>
 
-<label *ngIf="muestraOpciones == 'muestra'">
+<div *ngIf="muestraOpciones == 'muestra'">
   <h4>{{curso}}</h4>
 
   <h4>¿Qué desea hacer?</h4>
@@ -47,11 +47,11 @@
       Ver cuestionarios creados
     </button><br>
 
-</label>
-</label>
+</div>
+</div>
 
 <!--Crear cuestionario-->
-<label *ngIf="valor == 'crear'">
+<div *ngIf="valor == 'crear'">
 
     <h4>{{curso}}</h4>
 
@@ -67,18 +67,14 @@
       Checkbox
     </button><br>
 
-    <button class="button-inner button2-color" id="opcion1" ion-button danger (click)="enviarTipoDeCuestionario('radiobutton')">
+    <button class="button-inner button3-color" id="opcion1" ion-button danger (click)="enviarTipoDeCuestionario('radiobutton')">
       Radiobutton
     </button><br>
 
-    <button class="button-inner button3-color" id="opcion1" ion-button danger (click)="enviarTipoDeCuestionario('input')">
-      Input
-    </button><br>
-
-</label>
+</div>
 
 <!--Carga de preguntas-->
-<label *ngIf="valor == 'cargarPreguntas'">
+<div *ngIf="valor == 'cargarPreguntas'">
   <h4>Carga de preguntas</h4>
 
     <ion-item id="pregunta1">
@@ -105,83 +101,83 @@
       Grabar preguntas
     </button><br>
 
-</label>
+</div>
 <!--Carga de respuestas-->
-<label *ngIf="valor == 'cargarRespuestas'">
+<div *ngIf="valor == 'cargarRespuestas'">
   <h4>Carga de respuestas</h4>
 
     <h6>{{pregunta1}}</h6>
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 1:</ion-label>
-        <ion-input [(ngModel)] = "pregunta1respuesta1" type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta1respuesta1" type="text" name="pregunta1"></ion-input>
     </ion-item><br>
 
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 2:</ion-label>
-        <ion-input [(ngModel)] = "pregunta1respuesta2" type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta1respuesta2" type="text" name="pregunta1"></ion-input>
     </ion-item><br>
 
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 3</ion-label>
-        <ion-input [(ngModel)] = "pregunta1respuesta3" type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta1respuesta3" type="text" name="pregunta1"></ion-input>
     </ion-item><br>
 
     <h6>{{pregunta2}}</h6>
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 1:</ion-label>
-        <ion-input [(ngModel)] = "pregunta2respuesta1" type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta2respuesta1" type="text" name="pregunta2"></ion-input>
     </ion-item><br>
 
         <ion-item id="login">
         <ion-label floating>Ingrese respuesta 2:</ion-label>
-        <ion-input [(ngModel)] = "pregunta2respuesta2" type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta2respuesta2" type="text" name="pregunta2"></ion-input>
     </ion-item><br>
 
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 3</ion-label>
-        <ion-input [(ngModel)] = "pregunta2respuesta3" type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta2respuesta3" type="text" name="pregunta2"></ion-input>
     </ion-item><br>
 
     <h6>{{pregunta3}}</h6>
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 1:</ion-label>
-        <ion-input [(ngModel)] = "pregunta3respuesta1" type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta3respuesta1" type="text" name="pregunta3"></ion-input>
     </ion-item><br>
 
         <ion-item id="login">
         <ion-label floating>Ingrese respuesta 2:</ion-label>
-        <ion-input [(ngModel)] = "pregunta3respuesta2" type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta3respuesta2" type="text" name="pregunta3"></ion-input>
     </ion-item><br>
 
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 3</ion-label>
-        <ion-input [(ngModel)] = "pregunta3respuesta3" type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta3respuesta3" type="text" name="pregunta3"></ion-input>
     </ion-item><br>
 
     <h6>{{pregunta4}}</h6>
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 1:</ion-label>
-        <ion-input [(ngModel)] = "pregunta4respuesta1" type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta4respuesta1" type="text" name="pregunta4"></ion-input>
     </ion-item><br>
 
         <ion-item id="login">
         <ion-label floating>Ingrese respuesta 2:</ion-label>
-        <ion-input [(ngModel)] = "pregunta4respuesta2" type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta4respuesta2" type="text" name="pregunta4"></ion-input>
     </ion-item><br>
 
     <ion-item id="login">
         <ion-label floating>Ingrese respuesta 3</ion-label>
-        <ion-input [(ngModel)] = "pregunta4respuesta3" type="text" name="name"></ion-input>
+        <ion-input [(ngModel)] = "pregunta4respuesta3" type="text" name="pregunta4"></ion-input>
     </ion-item><br>
 
     <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="cargarRespuestas()">
       Grabar respuestas
     </button><br>
 
-</label>
+</div>
 
 <!--Grabar cuestionario-->
-<label *ngIf="valor == 'grabarCuestionario'">
+<div *ngIf="valor == 'grabarCuestionario'">
 
   <h4>¿Desea grabar el cuestionario?</h4><br>
 
@@ -233,77 +229,201 @@
       Ver Alumno
   </button><br>
 
-</label>
-</label>
+</div>
+</div>
 
 <!--ALUMNO-->
-<label *ngIf="perfil == 'alumno'">
-<label *ngIf="valor == ''">
+<div *ngIf="perfil == 'alumno'">
+
+<div *ngIf="valor == ''">
   <h4>Seleccione el cuestionario</h4>
 
-    <button class="button-inner" id="opcion1" ion-button danger (click)="seleccionarCuestionarioResp()">
+    <button class="button-inner" id="seleccionar" ion-button danger (click)="seleccionarCuestionarioResp()">
       Seleccionar cuestionario
     </button><br>
-</label>
+
+    <button class="button-inner button2-color" id="volver" ion-button danger (click)="verRespondidos()">
+      Ver respondidos
+    </button><br>
+
+    <button class="button-inner button4-color" id="mapa" ion-button danger (click)="seleccionarMapa()">
+      Cómo llegar a la facultad
+    </button><br>
+</div>
+
+<!--Mapa-->
+<div *ngIf="valor == 'muestraMapa'">
+  <h4>Como llegar a la Facultad</h4>
+      <agm-map [latitude]="latitud" [longitude]="longitud" [zoom]="10">
+       <agm-marker [latitude]="latitud" [longitude]="longitud" [label]="'UTN Fra'"></agm-marker>
+      </agm-map>
+
+    <button class="button-inner button6-color" id="menu" ion-button danger (click)="volver()">
+      Volver
+    </button>
+</div>
+
+<!--Ver respondidos-->
+<div *ngIf="valor == 'respondidos'">
+  <h4>Cuestionario {{nombreCuestionario}}</h4>
+
+  <div id="list">
+    <h5>{{pregunta1}}</h5>
+    <ul>
+      <li>{{pregunta1respuesta1}}</li>
+    </ul>
+  </div>
+
+  <div id="list">
+    <h5>{{pregunta2}}</h5>
+    <ul>
+      <li>{{pregunta2respuesta1}}</li>
+    </ul>
+  </div>
+
+  <div id="list">
+    <h5>{{pregunta3}}</h5>
+    <ul>
+      <li>{{pregunta3respuesta1}}</li>
+    </ul>
+  </div>
+
+  <div id="list">
+    <h5>{{pregunta1}}</h5>
+    <ul>
+      <li>{{pregunta4respuesta1}}</li>
+    </ul>
+  </div>
+
+  <button class="button-inner button6-color" id="pregunta1" ion-button danger (click)="volver()">
+    Volver
+  </button><br>
+   
+</div>
 
 <!--Cuestionario-->
-<label *ngIf="cargaCuestionario == 'muestra'">
+<div *ngIf="valor == 'cuestionarioAlumno'">
+ 
+  <div *ngIf="tipoElemento == 'checkbox'"> 
   <h4>Cuestionario {{nombreCuestionario}}</h4>
 
     <h6>{{pregunta1}}</h6>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">{{pregunta1respuesta1}}
+      <input type="checkbox" name="pregunta1" value="pregunta1respuesta1">{{pregunta1respuesta1}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">{{pregunta1respuesta2}}
+      <input type="checkbox" name="pregunta1" value="pregunta1respuesta2">{{pregunta1respuesta2}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">{{pregunta1respuesta3}}
+      <input type="checkbox" name="pregunta1" value="pregunta1respuesta3">{{pregunta1respuesta3}}
     </label><br><br>
 
     <h6>{{pregunta2}}</h6>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">{{pregunta2respuesta1}}
+      <input type="checkbox" name="pregunta2" value="pregunta2respuesta1">{{pregunta2respuesta1}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">{{pregunta2respuesta2}}
+      <input type="checkbox" name="pregunta2" value="pregunta2respuesta2">{{pregunta2respuesta2}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">{{pregunta2respuesta3}}
+      <input type="checkbox" name="pregunta2" value="pregunta2respuesta3">{{pregunta2respuesta3}}
     </label><br><br>
 
     <h6>{{pregunta3}}</h6>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">{{pregunta3respuesta1}}
+      <input type="checkbox" name="pregunta3" value="pregunta3respuesta1">{{pregunta3respuesta1}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">{{pregunta3respuesta2}}
+      <input type="checkbox" name="pregunta3" value="pregunta3respuesta2">{{pregunta3respuesta2}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">{{pregunta3respuesta3}}
+      <input type="checkbox" name="pregunta3" value="pregunta3respuesta3">{{pregunta3respuesta3}}
     </label><br><br>
 
     <h6>{{pregunta4}}</h6>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">{{pregunta4respuesta1}}
+      <input type="checkbox" name="pregunta4" value="pregunta4respuesta1">{{pregunta4respuesta1}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">{{pregunta4respuesta1}}
+      <input type="checkbox" name="pregunta4" value="pregunta4respuesta2">{{pregunta4respuesta1}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">{{pregunta4respuesta1}}
+      <input type="checkbox" name="pregunta4" value="pregunta4respuesta3">{{pregunta4respuesta1}}
     </label><br><br>
 
     <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="enviarRespuestas()">
       Enviar respuestas
     </button><br>
 
+    <button class="button-inner button6-color" id="opcion1" ion-button danger (click)="volver()">
+      Cancelar
+    </button><br>
+
     <button class="button-inner button5-color" id="opcion1" ion-button danger (click)="cambiarVistaProfesor()">
       Ver Profesor
     </button><br>
+  </div>
 
-</label>
-</label>
+  <div *ngIf="tipoElemento == 'radiobutton'">
+  <h4>Cuestionario {{nombreCuestionario}}</h4>
 
+    <h6>{{pregunta1}}</h6>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta1" value="pregunta1respuesta1">{{pregunta1respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta1" value="pregunta1respuesta2">{{pregunta1respuesta2}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta1" value="pregunta1respuesta3">{{pregunta1respuesta3}}
+    </label><br><br>
+
+    <h6>{{pregunta2}}</h6>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta2" value="pregunta2respuesta1">{{pregunta2respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta2" value="pregunta2respuesta2">{{pregunta2respuesta2}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta2" value="pregunta2respuesta3">{{pregunta2respuesta3}}
+    </label><br><br>
+
+    <h6>{{pregunta3}}</h6>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta3" value="pregunta3respuesta1">{{pregunta3respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta3" value="pregunta3respuesta2">{{pregunta3respuesta2}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta3" value="pregunta3respuesta3">{{pregunta3respuesta3}}
+    </label><br><br>
+
+    <h6>{{pregunta4}}</h6>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta4" value="pregunta4respuesta1">{{pregunta4respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta4" value="pregunta4respuesta2">{{pregunta4respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta4" value="pregunta4respuesta3">{{pregunta4respuesta1}}
+    </label><br><br>
+
+    <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="enviarRespuestas()">
+      Enviar respuestas
+    </button><br>
+
+    <button class="button-inner button6-color" id="opcion1" ion-button danger (click)="volver()">
+      Cancelar
+    </button><br>
+
+    <button class="button-inner button5-color" id="opcion1" ion-button danger (click)="cambiarVistaProfesor()">
+      Ver Profesor
+    </button><br>
+  </div>
+  </div>
+</div>
 
 </ion-content>

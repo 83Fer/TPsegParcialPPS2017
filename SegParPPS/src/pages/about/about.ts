@@ -8,6 +8,7 @@ import { NavController } from 'ionic-angular';
 export class AboutPage {
 
   foto:string="./assets/img/Ionic.jpg";
+  public user: string;
 
   constructor(public navCtrl: NavController) {
 

@@ -6,6 +6,9 @@ import { AuthProvider } from './../../providers/auth/auth';
 import { Vibration } from '@ionic-native/vibration';
 import { NativeAudio } from '@ionic-native/native-audio';
 
+// Maps
+import { AgmCoreModule } from '@agm/core';
+
 //Web service
 import { CuestionarioServiceProvider } from "./../../providers/cuestionario-service/cuestionario-service";
 import { PreguntasServiceProvider } from "./../../providers/preguntas-service/preguntas-service";
@@ -26,6 +29,7 @@ export class CuestionarioPage {
   valor: string= "";
   muestraOpciones: string= "";
   cargaCuestionario: string= "";
+  tipoElemento: string= "checkbox";
 
   tituloCursos: string= "Cursos";
   tituloCuestionarios: string= "Cuestionarios";
@@ -56,6 +60,11 @@ export class CuestionarioPage {
 
   // Vista Alumno
   cuestionarioResp: string= "";
+
+  //Maps
+  latitud: number = -34.662251;
+  longitud: number = -58.364710;
+  mostrarMapa: string = ""
 
   // Variable de Id cuestionario maximo
   idMaxC: string;
@@ -416,6 +425,7 @@ export class CuestionarioPage {
                   });
     ventana.present(ventana);
     this.vibration.vibrate(100);
+    this.valor= "cuestionarioAlumno";
   }
 
 // Vistas /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -427,7 +437,21 @@ export class CuestionarioPage {
   cambiarVistaAlumno(){
     this.perfil= "alumno";
     this.valor= "";
-    this.cargaCuestionario= "";
+  }
+
+
+// MAPS ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  seleccionarMapa(){
+    this.valor= "muestraMapa";
+  }
+
+  verRespondidos(){
+    this.valor= "respondidos";
+  }
+
+  volver(){
+    this.valor= "";
   }
 
 }
