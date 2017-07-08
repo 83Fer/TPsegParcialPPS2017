@@ -26,8 +26,88 @@ export class PreguntasServiceProvider {
     return "Error ";
   }
 
-   // Agregar Preguntas
+  // Agregar preguntas
  AgregarPregunta(pregunta: any) 
+  { 
+    
+     let datos={
+       idPregunta :  pregunta.idPregunta ,
+       idCuestionario : pregunta.idCuestionario ,
+       descripcion : pregunta.descripcion
+      };
+            
+            console.log(datos);
+    
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/preguntas";
+    this.http
+             .post(url , datos)
+             .toPromise()
+             .then()
+             .catch(this.ErrorExtraerDatos)
+  }
+
+  // Traer todas las preguntas de un cuestionario
+  TraerTodasLasPreguntasDeUnCuestionario(pregunta: any) 
+  { 
+    
+     let datos={
+       idPregunta :  pregunta.idPregunta ,
+       idCuestionario : pregunta.idCuestionario ,
+       descripcion : pregunta.descripcion
+      };
+            
+            console.log(datos);
+    
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/preguntas";
+    this.http
+             .post(url , datos)
+             .toPromise()
+             .then()
+             .catch(this.ErrorExtraerDatos)
+  }
+
+  // Borrar preguntas de un cuestionario
+  BorrarPreguntasDeUnCuestionario(pregunta: any) 
+  { 
+    
+     let datos={
+       idPregunta :  pregunta.idPregunta ,
+       idCuestionario : pregunta.idCuestionario ,
+       descripcion : pregunta.descripcion
+      };
+            
+            console.log(datos);
+    
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/preguntas";
+    this.http
+             .post(url , datos)
+             .toPromise()
+             .then()
+             .catch(this.ErrorExtraerDatos)
+  }
+
+  // Modificar preguntas de un cuestionario
+  ModificarPreguntasDeUnCuestionario(pregunta: any) 
+  { 
+    
+     let datos={
+       idPregunta :  pregunta.idPregunta ,
+       idCuestionario : pregunta.idCuestionario ,
+       descripcion : pregunta.descripcion
+      };
+            
+            console.log(datos);
+    
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/preguntas";
+    this.http
+             .post(url , datos)
+             .toPromise()
+             .then()
+             .catch(this.ErrorExtraerDatos)
+  }
+
+  // Traer todas las preguntas de todos los cuestionarios
+  TraerTodasLasPreguntas(pregunta: any) 
   { 
     
      let datos={

@@ -26,7 +26,7 @@ export class CuestionarioServiceProvider {
     return "Error ";
   }
 
-   // Agregar Usuario
+// Agregar usuario
  AgregarCuestionario(cuestionario: any) 
   { 
     
@@ -50,6 +50,7 @@ export class CuestionarioServiceProvider {
              .catch(this.ErrorExtraerDatos)
   }
 
+  // Traer último cuestionario
   TraerUltimoCuestionario()
   {
     let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idMax/";    
@@ -60,5 +61,92 @@ export class CuestionarioServiceProvider {
       .catch(this.ErrorExtraerDatos);
   }
 
+  // Traer todos los cuestionarios de un profesor
+  TraerTodosLosCuestionariosPorProfesor()
+  {
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idMax/";    
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(this.ExtraerDatos)
+      .catch(this.ErrorExtraerDatos);
+  }
+
+  // Traer todos los cuestionarios de un curso
+  TraerTodosLosCuestionariosPorCurso()
+  {
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idMax/";    
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(this.ExtraerDatos)
+      .catch(this.ErrorExtraerDatos);
+  }
+
+  // Traer un cuestionario
+  TraeUnCuestionario()
+  {
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idMax/";    
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(this.ExtraerDatos)
+      .catch(this.ErrorExtraerDatos);
+  }
+
+  // Borrar un cuestionario
+  BorrarCuestionario()
+  {
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idMax/";    
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(this.ExtraerDatos)
+      .catch(this.ErrorExtraerDatos);
+  }
+
+  // Modificar un cuestionario
+  ModificarCuestionario()
+  {
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idMax/";    
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(this.ExtraerDatos)
+      .catch(this.ErrorExtraerDatos);
+  }
+
+  // Responder un cuestionario
+  ResponderCuestionario()
+  {
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idMax/";    
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(this.ExtraerDatos)
+      .catch(this.ErrorExtraerDatos);
+  }
+
+  // Traer respuestas de un cuestionario
+  TraerRespuestasDeUnCuestionario()
+  {
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idMax/";    
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(this.ExtraerDatos)
+      .catch(this.ErrorExtraerDatos);
+  }
+
+  // Traer respuestas de todos los cuestionarios
+  TraerRespuestasDeTodosLosCuestionarios()
+  {
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idMax/";    
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(this.ExtraerDatos)
+      .catch(this.ErrorExtraerDatos);
+  }
 
 }

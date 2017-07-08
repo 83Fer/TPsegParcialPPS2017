@@ -27,8 +27,92 @@ export class RespuestasServiceProvider {
     return "Error ";
   }
 
-   // Agregar Respuesta
+  // Agregar Respuestas
  AgregarRespuesta(respuesta: any) 
+  { 
+    
+     let datos={
+       idRespuesta :  respuesta.idRespuesta ,
+       idCuestionario : respuesta.idCuestionario ,
+       idPregunta : respuesta.idPregunta,
+       descripcion: respuesta.descripcion
+      };
+            
+            console.log(datos);
+    
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/respuestas";
+    this.http
+             .post(url , datos)
+             .toPromise()
+             .then()
+             .catch(this.ErrorExtraerDatos)
+  }
+
+  // Traer respuestas de un cuestionario
+ TraerRespuestasDeUnCuestionario(respuesta: any) 
+  { 
+    
+     let datos={
+       idRespuesta :  respuesta.idRespuesta ,
+       idCuestionario : respuesta.idCuestionario ,
+       idPregunta : respuesta.idPregunta,
+       descripcion: respuesta.descripcion
+      };
+            
+            console.log(datos);
+    
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/respuestas";
+    this.http
+             .post(url , datos)
+             .toPromise()
+             .then()
+             .catch(this.ErrorExtraerDatos)
+  }
+
+  // Borrar respuestas de un cuestionario
+ BorrarRespuestasDeUnCuestionario(respuesta: any) 
+  { 
+    
+     let datos={
+       idRespuesta :  respuesta.idRespuesta ,
+       idCuestionario : respuesta.idCuestionario ,
+       idPregunta : respuesta.idPregunta,
+       descripcion: respuesta.descripcion
+      };
+            
+            console.log(datos);
+    
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/respuestas";
+    this.http
+             .post(url , datos)
+             .toPromise()
+             .then()
+             .catch(this.ErrorExtraerDatos)
+  }
+
+  // Modificar respuestas de un cuestionario
+ ModificarRespuestasDeUnCuestionario(respuesta: any) 
+  { 
+    
+     let datos={
+       idRespuesta :  respuesta.idRespuesta ,
+       idCuestionario : respuesta.idCuestionario ,
+       idPregunta : respuesta.idPregunta,
+       descripcion: respuesta.descripcion
+      };
+            
+            console.log(datos);
+    
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/respuestas";
+    this.http
+             .post(url , datos)
+             .toPromise()
+             .then()
+             .catch(this.ErrorExtraerDatos)
+  }
+
+  // Traer todas las preguntas de todos los cuestionarios
+ TraerTodasLasRespuestas(respuesta: any) 
   { 
     
      let datos={
