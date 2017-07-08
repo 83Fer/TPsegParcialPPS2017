@@ -13,8 +13,8 @@
      </ion-row>
   </ion-navbar>
 </ion-header>
+
 <ion-content padding class="fondo">
-  
 <!--Pantalla Principal-->
 
 <!--PROFESOR-->
@@ -35,24 +35,188 @@
       Crear cuestionario
     </button><br>
 
-    <button class="button-inner button2-color" id="opcion1" ion-button danger (click)="modificarCuestionario()">
-      Modificar cuestionario
-    </button><br>
-
-    <button class="button-inner button3-color" id="opcion1" ion-button danger (click)="eliminarCuestionario()">
-      Eliminar cuestionario
-    </button><br>
-
-    <button class="button-inner button4-color" id="opcion2" ion-button danger (click)="verCuestionarios()">
+    <button class="button-inner button2-color" id="opcion2" ion-button danger (click)="verCuestionario()">
       Ver cuestionarios creados
     </button><br>
 
+    <button class="button-inner button4-color" id="opcion2" ion-button danger (click)="editarCuestionario()">
+      Editar cuestionarios creados
+    </button><br>
 </div>
 </div>
+
+<div *ngIf="valor == 'editar'"> 
+    <div class="container">      
+      <table class="table">
+        <thead style="font-size: 14px;text-align: center;">
+          <tr>
+            <th class="col-sm-4">NOMBRE</th>
+            <td class="col-sm-1">&nbsp;&nbsp;</td>
+            <th class="col-sm-3">Modificar</th>
+            <td class="col-sm-1">&nbsp;&nbsp;</td>
+            <th class="col-sm-3">Borrar</th>
+          </tr>
+        </thead>
+         <!--*ngFor="let datos of datosC" style="text-align: left;"-->
+        <tbody> 
+          <tr>
+          <td><strong>{{ cuestionarioPrueba }}</strong></td>
+          <td>&nbsp;&nbsp;</td>
+          <td><button class="button-inner button5-color" item-width="10px" ion-button danger (click)="modificarCuestionario()">
+                Modificar
+              </button></td>
+          <td>&nbsp;&nbsp;</td>
+          <td><button class="button-inner button6-color" item-width="10px" ion-button danger (click)="eliminarCuestionario()">
+                Borrar
+              </button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      <br><br><button class="button-inner button6-color" id="opcion1" ion-button danger (click)="volver()">
+      Volver
+    </button><br>
+</div>
+
+<div *ngIf="valor == 'ver'"> 
+    <div class="container">      
+      <table class="table">
+        <thead style="font-size: 14px;text-align: center;">
+          <tr>
+            <th class="col-sm-4">NOMBRE</th>
+            <td class="col-sm-1">&nbsp;&nbsp;</td>
+            <th class="col-sm-3">Ver</th>
+          </tr>
+        </thead>
+         <!--*ngFor="let datos of datosC" style="text-align: left;"-->
+        <tbody> 
+          <tr>
+          <td><strong>{{ cuestionarioPrueba }}</strong></td>
+          <td>&nbsp;&nbsp;</td>
+          <td><button class="button-inner button1-color" item-width="10px" ion-button danger (click)="mirarCuestionario()">
+                Ver
+              </button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br><br><button class="button-inner button6-color" item-width="10px" ion-button danger (click)="volver()">
+      Volver
+    </button>
+</div>
+
+<div *ngIf="valor == 'verCuestionarioProfesor'"> 
+  <div *ngIf="tipoElemento == 'checkbox'"> 
+  <h4>Cuestionario {{nombreCuestionario}}</h4>
+
+    <h6>{{pregunta1}}</h6>
+    <label class="checkbox-inline">
+      <input type="checkbox" name="pregunta1" value="pregunta1respuesta1">{{pregunta1respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" name="pregunta1" value="pregunta1respuesta2">{{pregunta1respuesta2}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" name="pregunta1" value="pregunta1respuesta3">{{pregunta1respuesta3}}
+    </label><br><br>
+
+    <h6>{{pregunta2}}</h6>
+    <label class="checkbox-inline">
+      <input type="checkbox" name="pregunta2" value="pregunta2respuesta1">{{pregunta2respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" name="pregunta2" value="pregunta2respuesta2">{{pregunta2respuesta2}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" name="pregunta2" value="pregunta2respuesta3">{{pregunta2respuesta3}}
+    </label><br><br>
+
+    <h6>{{pregunta3}}</h6>
+    <label class="checkbox-inline">
+      <input type="checkbox" name="pregunta3" value="pregunta3respuesta1">{{pregunta3respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" name="pregunta3" value="pregunta3respuesta2">{{pregunta3respuesta2}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" name="pregunta3" value="pregunta3respuesta3">{{pregunta3respuesta3}}
+    </label><br><br>
+
+    <h6>{{pregunta4}}</h6>
+    <label class="checkbox-inline">
+      <input type="checkbox" name="pregunta4" value="pregunta4respuesta1">{{pregunta4respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" name="pregunta4" value="pregunta4respuesta2">{{pregunta4respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" name="pregunta4" value="pregunta4respuesta3">{{pregunta4respuesta1}}
+    </label><br><br>
+
+    <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="enviarRespuestas()">
+      Enviar respuestas
+    </button><br>
+
+    <button class="button-inner button6-color" id="opcion1" ion-button danger (click)="volver()">
+      Cancelar
+    </button><br>
+  </div>
+
+  <div *ngIf="tipoElemento == 'radiobutton'">
+  <h4>Cuestionario {{nombreCuestionario}}</h4>
+
+    <h6>{{pregunta1}}</h6>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta1" value="pregunta1respuesta1">{{pregunta1respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta1" value="pregunta1respuesta2">{{pregunta1respuesta2}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta1" value="pregunta1respuesta3">{{pregunta1respuesta3}}
+    </label><br><br>
+
+    <h6>{{pregunta2}}</h6>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta2" value="pregunta2respuesta1">{{pregunta2respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta2" value="pregunta2respuesta2">{{pregunta2respuesta2}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta2" value="pregunta2respuesta3">{{pregunta2respuesta3}}
+    </label><br><br>
+
+    <h6>{{pregunta3}}</h6>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta3" value="pregunta3respuesta1">{{pregunta3respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta3" value="pregunta3respuesta2">{{pregunta3respuesta2}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta3" value="pregunta3respuesta3">{{pregunta3respuesta3}}
+    </label><br><br>
+
+    <h6>{{pregunta4}}</h6>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta4" value="pregunta4respuesta1">{{pregunta4respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta4" value="pregunta4respuesta2">{{pregunta4respuesta1}}
+    </label><br>
+    <label class="checkbox-inline">
+      <input type="radio" name="pregunta4" value="pregunta4respuesta3">{{pregunta4respuesta1}}
+    </label><br><br>
+
+    <button class="button-inner button6-color" id="opcion1" ion-button danger (click)="volver()">
+      Volver
+    </button><br>
+    </div>
+  </div>
 
 <!--Crear cuestionario-->
 <div *ngIf="valor == 'crear'">
-
     <h4>{{curso}}</h4>
 
     <h4>Nombre del cuestionario</h4>
@@ -70,7 +234,6 @@
     <button class="button-inner button3-color" id="opcion1" ion-button danger (click)="enviarTipoDeCuestionario('radiobutton')">
       Radiobutton
     </button><br>
-
 </div>
 
 <!--Carga de preguntas-->
@@ -100,8 +263,8 @@
     <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="cargarPreguntas()">
       Grabar preguntas
     </button><br>
-
 </div>
+
 <!--Carga de respuestas-->
 <div *ngIf="valor == 'cargarRespuestas'">
   <h4>Carga de respuestas</h4>
@@ -173,7 +336,6 @@
     <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="cargarRespuestas()">
       Grabar respuestas
     </button><br>
-
 </div>
 
 <!--Grabar cuestionario-->
@@ -225,10 +387,9 @@
       Cancelar
   </button><br>
 
-  <button class="button-inner button4-color" id="opcion1" ion-button danger (click)="cambiarVistaAlumno()">
+  <!--<button class="button-inner button4-color" id="opcion1" ion-button danger (click)="cambiarVistaAlumno()">
       Ver Alumno
-  </button><br>
-
+  </button><br>-->
 </div>
 </div>
 
@@ -236,10 +397,10 @@
 <div *ngIf="perfil == 'alumno'">
 
 <div *ngIf="valor == ''">
-  <h4>Seleccione el cuestionario</h4>
+  <h3>Seleccione la opción deseada</h3><br>
 
     <button class="button-inner" id="seleccionar" ion-button danger (click)="seleccionarCuestionarioResp()">
-      Seleccionar cuestionario
+      Cuestionarios cargados
     </button><br>
 
     <button class="button-inner button2-color" id="volver" ion-button danger (click)="verRespondidos()">
@@ -303,7 +464,38 @@
 
 <!--Cuestionario-->
 <div *ngIf="valor == 'cuestionarioAlumno'">
- 
+
+  <div *ngIf="verCuestionarioAlumno == 'verCuestionarios'"> 
+    <div class="container">      
+      <table class="table">
+        <thead style="font-size: 14px;text-align: center;">
+          <tr>
+            <th class="col-sm-3">NOMBRE</th>
+            <th class="col-sm-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th class="col-sm-3">ACCIÓN</th>
+          </tr>
+        </thead>
+         <!--*ngFor="let datos of datosC" style="text-align: left;"-->
+        <tbody> 
+          <tr>
+          <td><strong>{{ cuestionarioPrueba }}</strong></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <!--<td> <button class="btn btn-primary" (click)="responderCuestionario();"> Responder </button> </td>-->
+              <button class="button-inner button1-color" item-width="25px" ion-button danger (click)="responderCuestionario()">
+                Responder
+              </button>
+          <!--<input type= "hidden" id= "mBorrarC"  (click)=".open()">-->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+        <br><br><button class="button-inner button6-color" item-width="10px" ion-button danger (click)="volver()">
+          Volver
+        </button>
+  </div>
+
+
+ <div *ngIf="verCuestionarioAlumno == 'hacerCuestionario'"> 
   <div *ngIf="tipoElemento == 'checkbox'"> 
   <h4>Cuestionario {{nombreCuestionario}}</h4>
 
@@ -359,9 +551,9 @@
       Cancelar
     </button><br>
 
-    <button class="button-inner button5-color" id="opcion1" ion-button danger (click)="cambiarVistaProfesor()">
+    <!--<button class="button-inner button5-color" id="opcion1" ion-button danger (click)="cambiarVistaProfesor()">
       Ver Profesor
-    </button><br>
+    </button><br>-->
   </div>
 
   <div *ngIf="tipoElemento == 'radiobutton'">
@@ -419,9 +611,10 @@
       Cancelar
     </button><br>
 
-    <button class="button-inner button5-color" id="opcion1" ion-button danger (click)="cambiarVistaProfesor()">
+    <!--<button class="button-inner button5-color" id="opcion1" ion-button danger (click)="cambiarVistaProfesor()">
       Ver Profesor
-    </button><br>
+    </button><br>-->
+    </div>
   </div>
   </div>
 </div>

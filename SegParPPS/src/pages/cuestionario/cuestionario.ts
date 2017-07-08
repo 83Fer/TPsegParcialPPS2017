@@ -29,7 +29,7 @@ export class CuestionarioPage {
   valor: string= "";
   muestraOpciones: string= "";
   cargaCuestionario: string= "";
-  tipoElemento: string= "checkbox";
+  tipoElemento: string= "radiobutton";
 
   tituloCursos: string= "Cursos";
   tituloCuestionarios: string= "Cuestionarios";
@@ -59,7 +59,13 @@ export class CuestionarioPage {
   pregunta4respuesta3: string= "3resp 4preg";
 
   // Vista Alumno
+  verElCuestionario: string = "";
+
+  // Vista Alumno
   cuestionarioResp: string= "";
+  verCuestionarioAlumno: string = "";
+
+  cuestionarioPrueba: string= "Prueba";
 
   //Maps
   latitud: number = -34.662251;
@@ -163,25 +169,21 @@ export class CuestionarioPage {
   modificarCuestionario(){
     this.muestraOpciones= "";
     let ventana = this.alertCtrl.create({
-                  title: this.tituloCuestionarios,
+                  title: "¿Desea modificar el cuestionario?",
                   message: this.mensaje, 
                   buttons:[
                     {
-                      text: "Sistemas Operativos",
+                      text: "Aceptar",
                       handler: data => {
-                        console.log('Cuestionario: Sistemas Operativos');
-                        this.cuestionario= "Sistemas Operativos";
-                        this.muestraOpciones= "muestra";
+                        console.log('');
                         }
-                      },                 
+                      },   
                     {
-                      text: "Base de Datos",
+                      text: "Cancelar",
                       handler: data => {
-                        console.log('Cuestionario: Sistemas Operativos');
-                        this.cuestionario= "Sistemas Operativos";
-                        this.muestraOpciones= "muestra";
+                        console.log('');
                         }
-                      }
+                      },         
                   ]
     });
     ventana.present(ventana);
@@ -192,25 +194,21 @@ export class CuestionarioPage {
   eliminarCuestionario(){
         this.muestraOpciones= "";
         let ventana = this.alertCtrl.create({
-                  title: this.tituloCuestionarios,
+                  title: "¿Desea eliminar el cuestionario?",
                   message: this.mensaje, 
                   buttons:[
                     {
-                      text: "Investigación Operativa",
+                      text: "Aceptar",
                       handler: data => {
-                        console.log('Cuestionario: Investigación Operativa');
-                        this.cuestionario= "Investigación Operativa";
-                        this.muestraOpciones= "muestra";
+                        console.log('');
                         }
-                      },               
+                      },   
                     {
-                      text: "Programación III",
+                      text: "Cancelar",
                       handler: data => {
-                        console.log('Cuestionario: Programación III');
-                        this.cuestionario= "Programación III";
-                        this.muestraOpciones= "muestra";
+                        console.log('');
                         }
-                      }
+                      },         
                   ]
         });
     ventana.present(ventana);
@@ -218,8 +216,16 @@ export class CuestionarioPage {
   }
 
   //////////////////////////////////////////////////////////////// Ver Cuestionarios
-  verCuestionarios(){
-    
+  verCuestionario(){
+    this.valor= "ver";
+  }
+
+  editarCuestionario(){
+    this.valor="editar";
+  }
+
+  mirarCuestionario(){
+    this.valor= "verCuestionarioProfesor";
   }
 
   //////////////////////////////////////////////////////////////// Tipo de Cuestionario
@@ -227,18 +233,17 @@ export class CuestionarioPage {
     this.valor= "cargarPreguntas";
     this.tipoCuestionario= tipo;
     console.info(this.tipoCuestionario, this.nombreCuestionario);
+    this.nativeAudio.play('correcto', () => console.log("correcto"));
   }
 
   //////////////////////////////////////////////////////////////// Cargar Preguntas
   cargarPreguntas(){
     this.valor= "cargarRespuestas";
-    this.nativeAudio.play('correcto', () => console.log("correcto"));
   }
 
   //////////////////////////////////////////////////////////////// Cargar respuestas
   cargarRespuestas(){
     this.valor= "grabarCuestionario";
-    this.nativeAudio.play('correcto', () => console.log("correcto"));
   }
 
   //////////////////////////////////////////////////////////////// Cancelar Carga
@@ -398,46 +403,16 @@ export class CuestionarioPage {
 
 // ALUMNO ///////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
-  seleccionarCuestionarioResp(){
-    let ventana = this.alertCtrl.create({
-                  title: this.tituloCuestionarios,
-                  message: this.mensaje, 
-                  buttons:[
-                    {
-                      text: "Cuest. Programación I",
-                      handler: data => {
-                        this.cuestionarioResp= "Cuest. Programación I";
-                        this.cargaCuestionario= "muestra";
-                        }
-                      },
-                      
-                    {
-                      text: "Cuest. Programación II",
-                      handler: data => {
-                        this.cuestionarioResp= "Cuest. Programación II";
-                        this.cargaCuestionario= "muestra";
-                        }
-                      },
-                    {
-                      text: "Cuest. Base de Datos I",
-                      handler: data => {
-                        this.cuestionarioResp= "Cuest. Base de Datos I";
-                        this.cargaCuestionario= "muestra";
-                        }
-                      },
-                    {
-                      text: "Cuest. Investigación Operativa",
-                      handler: data => {
-                        this.cuestionarioResp= "Cuest.o Investigación Operativa";
-                        this.cargaCuestionario= "muestra";
-                        }
-                      }
-                    ]
-                  });
-    ventana.present(ventana);
-    this.vibration.vibrate(100);
-    this.valor= "cuestionarioAlumno";
-  }
+// Ver el cuestionario
+seleccionarCuestionarioResp(){
+  this.valor= "cuestionarioAlumno";
+  this.verCuestionarioAlumno= "verCuestionarios";
+}
+
+responderCuestionario(){
+  this.verCuestionarioAlumno= "hacerCuestionario";
+}
+
 
 // Vistas /////////////////////////////////////////////////////////////////////////////////////////////////////////
   cambiarVistaProfesor(){
