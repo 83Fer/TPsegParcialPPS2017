@@ -57,6 +57,12 @@ export class LoginPage {
       password: "qwe321"
     }
   }
+  setAdministrativo() {
+    this.form ={
+      email: "administrativo@hotmail.com",
+      password: "qwe321"
+    }
+  }
   setUsuario() {
     this.form ={
       email: "usuario@hotmail.com",

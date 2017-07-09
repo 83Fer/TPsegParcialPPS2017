@@ -1,5 +1,6 @@
 .login-email {
   background-image: url("../../assets/img/fondo.jpg");
+  // background-color: #B3B2FF;
   background-size: 100%;
   background-position-y: 50%;
   margin-top: 20px;
@@ -48,7 +49,12 @@
     width: 40%;
   }
   #btnAdmin{
-    width: 50%;
+    width: 40%;
+    margin: auto;
+    margin-top: 20px;
+  }
+  #btnAdministrativo{
+    width: 40%;
     margin: auto;
     margin-top: 20px;
   }
@@ -77,6 +83,6 @@
      }*/
      #btns{
        margin: auto;
-       margin-top: 70px;
+       margin-top: 50px;
      }
 }

@@ -4,7 +4,7 @@
      Login
     </ion-title>
   </ion-navbar>
-  <ion-toolbar  color='favorite'>
+  <ion-toolbar color='light'>
     <ion-segment>
       <ion-segment-button value="new" (click)="openSignUpPage()">
         Regístrate
@@ -36,34 +36,39 @@
     </button>
   </form>
     <div id="btns">
-    <button id="btnUsuario" ion-button block [disabled]="!loginForm.form.valid"
-      ion-button color="light" (click)="setUsuario()">Usuario</button>
-      <ion-row>
-      <button id="btnAdmin" ion-button block [disabled]="!loginForm.form.valid"
-      ion-button color="secondary" (click)="setAdmin()">Administrador</button>
+    <ion-row>
+      <button id="btnUsuario" ion-button block [disabled]="!loginForm.form.valid"
+      ion-button color="light" (click)="setUsuario()">Alumno</button>
+
       <button id="btnProfesor" ion-button block [disabled]="!loginForm.form.valid"
-      ion-button color="dark" (click)="setProfesor()">Profesor</button>
+      ion-button color="light" (click)="setProfesor()">Profesor</button>
+    <ion-row>
+    </ion-row>
+
+      <button id="btnAdmin" ion-button block [disabled]="!loginForm.form.valid"
+      ion-button color="light" (click)="setAdministrativo()">Administrativo</button>
+
+      <button id="btnAdministrativo" ion-button block [disabled]="!loginForm.form.valid"
+      ion-button color="light" (click)="setAdmin()">Administrador</button><br>
     </ion-row>
     </div>
-    <h4 style="color:yellow;text-align: left">Registrarse con</h4>
-  <br><br>
-  
-   <div>   
-      <ion-fab id="btnRedes" center middle>
-      <button ion-fab color="danger"><ion-icon name="arrow-dropup"></ion-icon></button>
-      <ion-fab-list side="top">
-      <button ion-fab color="primary" (click)="loginUserWithGitHub()"><ion-icon name="logo-github"></ion-icon></button>
-    </ion-fab-list>
-    <ion-fab-list side="bottom">
+    <h4 style="color:white;text-align: center">Registrarse con</h4>
+
+   <!--<div>   -->
+      <!--<ion-fab id="btnRedes" center middle>-->
+      <!--<button ion-fab color="danger"><ion-icon name="arrow-dropup"></ion-icon></button>-->
+      <!--<ion-fab-list side="top">-->
+      <div align="center"><button ion-fab color="primary" (click)="loginUserWithGitHub()"><ion-icon name="logo-github"></ion-icon></button></div>
+    <!--</ion-fab-list>-->
+    <!--<ion-fab-list side="bottom">
       <button ion-fab color="secondary" (click)="loginUserWithFacebook()"><ion-icon name="logo-facebook"></ion-icon></button>
     </ion-fab-list>
     <ion-fab-list side="left">
       <button ion-fab color="light" (click)="loginUserWithGoogle()"><ion-icon name="logo-google"></ion-icon></button>
-    </ion-fab-list>
-    
-  </ion-fab>
-   </div>
-   <br><br>
+    </ion-fab-list>-->   
+  <!--</ion-fab>-->
+   <!--</div>-->
+   <br>
      <div padding class="error" *ngIf="error">
       <p>{{error}}</p>
     </div>
