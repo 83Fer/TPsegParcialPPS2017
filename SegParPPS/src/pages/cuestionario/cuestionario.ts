@@ -413,19 +413,6 @@ responderCuestionario(){
   this.verCuestionarioAlumno= "hacerCuestionario";
 }
 
-
-// Vistas /////////////////////////////////////////////////////////////////////////////////////////////////////////
-  cambiarVistaProfesor(){
-    this.perfil= "profesor";
-    this.valor= "";
-  }
-
-  cambiarVistaAlumno(){
-    this.perfil= "alumno";
-    this.valor= "";
-  }
-
-
 // MAPS ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   seleccionarMapa(){
@@ -438,10 +425,6 @@ responderCuestionario(){
 
   verRespondidos(){
     this.valor= "respondidos";
-
-
   }
-
-
 
 }

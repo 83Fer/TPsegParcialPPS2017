@@ -22,8 +22,8 @@
 <div *ngIf="valor == ''">
   <h4>Seleccione el curso</h4>
 
-    <button class="button-inner" id="opcion1" ion-button danger (click)="seleccionarCurso()">
-      Seleccionar curso
+    <button class="button-inner" id="opcion1" style="width: 325px; height: 50px;" ion-button danger (click)="seleccionarCurso()">
+      Seleccionar curso &nbsp;&nbsp;<ion-icon name="md-checkmark-circle-outline"></ion-icon>
     </button><br>
 
 <div *ngIf="muestraOpciones == 'muestra'">
@@ -31,16 +31,16 @@
 
   <h4>¿Qué desea hacer?</h4>
 
-    <button class="button-inner button1-color" id="opcion1" ion-button danger (click)="crearCuestionario()">
-      Crear cuestionario
+    <button class="button-inner button1-color" id="opcion1" style="width: 325px; height: 60px;" ion-button danger (click)="crearCuestionario()">
+      Crear cuestionario &nbsp;&nbsp;<ion-icon name="md-clipboard"></ion-icon>
     </button><br>
 
-    <button class="button-inner button2-color" id="opcion2" ion-button danger (click)="verCuestionario()">
-      Ver cuestionarios creados
+    <button class="button-inner button2-color" id="opcion2" style="width: 325px; height: 60px;" ion-button danger (click)="verCuestionario()">
+      Ver cuestionarios &nbsp;&nbsp;<ion-icon name="md-search"></ion-icon> 
     </button><br>
 
-    <button class="button-inner button4-color" id="opcion2" ion-button danger (click)="editarCuestionario()">
-      Editar cuestionarios creados
+    <button class="button-inner button4-color" id="opcion2" style="width: 325px; height: 60px;" ion-button danger (click)="editarCuestionario()">
+      Editar cuestionarios creados &nbsp;&nbsp;<ion-icon name="md-create"></ion-icon>
     </button><br>
 </div>
 </div>
@@ -63,18 +63,18 @@
           <td><strong>{{ cuestionarioPrueba }}</strong></td>
           <td>&nbsp;&nbsp;</td>
           <td><button class="button-inner button5-color" item-width="10px" ion-button danger (click)="modificarCuestionario()">
-                Modificar
+                Modificar &nbsp;<ion-icon name="md-create"></ion-icon>
               </button></td>
           <td>&nbsp;&nbsp;</td>
           <td><button class="button-inner button6-color" item-width="10px" ion-button danger (click)="eliminarCuestionario()">
-                Borrar
+                Borrar &nbsp;<ion-icon name="ios-trash"></ion-icon>
               </button></td>
           </tr>
         </tbody>
       </table>
     </div>
-      <br><br><button class="button-inner button6-color" id="opcion1" ion-button danger (click)="volver()">
-      Volver
+      <br><br><button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
+        <ion-icon name="md-arrow-round-back"></ion-icon>&nbsp;&nbsp; Volver
     </button><br>
 </div>
 
@@ -100,8 +100,8 @@
         </tbody>
       </table>
     </div>
-    <br><br><button class="button-inner button6-color" item-width="10px" ion-button danger (click)="volver()">
-      Volver
+    <br><br><button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
+      <ion-icon name="md-arrow-round-back"></ion-icon>&nbsp;&nbsp; Volver
     </button>
 </div>
 
@@ -154,12 +154,12 @@
     </label><br><br>
 
     <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="enviarRespuestas()">
-      Enviar respuestas
+      Enviar respuestas &nbsp;&nbsp;<ion-icon name="md-arrow-forward"></ion-icon> 
     </button><br>
 
-    <button class="button-inner button6-color" id="opcion1" ion-button danger (click)="volver()">
-      Cancelar
-    </button><br>
+    <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
+      Cancelar &nbsp;&nbsp;<ion-icon name="md-close-circle"></ion-icon>
+    </button>
   </div>
 
   <div *ngIf="tipoElemento == 'radiobutton'">
@@ -209,8 +209,8 @@
       <input type="radio" name="pregunta4" value="pregunta4respuesta3">{{pregunta4respuesta1}}
     </label><br><br>
 
-    <button class="button-inner button6-color" id="opcion1" ion-button danger (click)="volver()">
-      Volver
+    <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
+      <ion-icon name="md-arrow-round-back"></ion-icon>&nbsp;&nbsp; Volver 
     </button><br>
     </div>
   </div>
@@ -227,12 +227,12 @@
 
   <h4>¿Qué tipo de elemento usará?</h4>
 
-    <button class="button-inner button1-color" id="opcion1" ion-button danger (click)="enviarTipoDeCuestionario('checkbox')">
-      Checkbox
+    <button class="button-inner button1-color" style="width: 325px; height: 50px;" ion-button danger (click)="enviarTipoDeCuestionario('checkbox')">
+      <ion-icon name="ios-checkbox-outline"></ion-icon>&nbsp;&nbsp; Checkbox
     </button><br>
 
-    <button class="button-inner button3-color" id="opcion1" ion-button danger (click)="enviarTipoDeCuestionario('radiobutton')">
-      Radiobutton
+    <button class="button-inner button3-color" style="width: 325px; height: 50px;" ion-button danger (click)="enviarTipoDeCuestionario('radiobutton')">
+      <ion-icon name="md-radio-button-on"></ion-icon>&nbsp;&nbsp; Radiobutton 
     </button><br>
 </div>
 
@@ -260,9 +260,13 @@
         <ion-input [(ngModel)] = "pregunta4" type="text" name="name"></ion-input>
     </ion-item><br>
 
-    <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="cargarPreguntas()">
-      Grabar preguntas
+    <button class="button-inner button1-color" style="width: 325px; height: 40px;" ion-button danger (click)="cargarPreguntas()">
+      Grabar preguntas &nbsp;&nbsp;<ion-icon name="md-done-all"></ion-icon>
     </button><br>
+
+      <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="cancelarCarga()">
+      Cancelar &nbsp;&nbsp;<ion-icon name="md-close-circle"></ion-icon>
+    </button>
 </div>
 
 <!--Carga de respuestas-->
@@ -333,9 +337,13 @@
         <ion-input [(ngModel)] = "pregunta4respuesta3" type="text" name="pregunta4"></ion-input>
     </ion-item><br>
 
-    <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="cargarRespuestas()">
-      Grabar respuestas
+    <button class="button-inner button1-color" style="width: 325px; height: 40px;" ion-button danger (click)="cargarRespuestas()">
+      Grabar respuestas &nbsp;&nbsp;<ion-icon name="md-done-all"></ion-icon>
     </button><br>
+
+    <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="cancelarCarga()">
+      Cancelar &nbsp;&nbsp;<ion-icon name="md-close-circle"></ion-icon>
+    </button>
 </div>
 
 <!--Grabar cuestionario-->
@@ -379,17 +387,14 @@
     </ul>
   </div>
 
-  <button class="button-inner button5-color" id="pregunta1" ion-button danger (click)="guardarCuestionario()">
-    Grabar cuestionario
+  <button class="button-inner button5-color" style="width: 325px; height: 40px;" ion-button danger (click)="guardarCuestionario()">
+    Grabar cuestionario &nbsp;&nbsp;<ion-icon name="md-done-all"></ion-icon>
   </button><br>
 
-  <button class="button-inner button6-color" id="opcion1" ion-button danger (click)="cancelarCarga()">
-      Cancelar
-  </button><br>
+  <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="cancelarCarga()">
+      Cancelar &nbsp;&nbsp;<ion-icon name="md-close-circle"></ion-icon>
+  </button>
 
-  <!--<button class="button-inner button4-color" id="opcion1" ion-button danger (click)="cambiarVistaAlumno()">
-      Ver Alumno
-  </button><br>-->
 </div>
 </div>
 
@@ -399,16 +404,16 @@
 <div *ngIf="valor == ''">
   <h3>Seleccione la opción deseada</h3><br>
 
-    <button class="button-inner" id="seleccionar" ion-button danger (click)="seleccionarCuestionarioResp()">
-      Cuestionarios cargados
+    <button class="button-inner" id="seleccionar" style="width: 325px; height: 100px;" ion-button danger (click)="seleccionarCuestionarioResp()">
+      Cuestionarios cargados &nbsp;&nbsp;<ion-icon name="md-cloud-upload"></ion-icon>
     </button><br>
 
-    <button class="button-inner button2-color" id="volver" ion-button danger (click)="verRespondidos()">
-      Ver respondidos
+    <button class="button-inner button2-color" style="width: 325px; height: 40px;" ion-button danger style="width: 325px; height: 100px;" (click)="verRespondidos()">
+      Ver respondidos &nbsp;&nbsp;<ion-icon  name="md-search"></ion-icon>
     </button><br>
 
-    <button class="button-inner button4-color" id="mapa" ion-button danger (click)="seleccionarMapa()">
-      Cómo llegar a la facultad
+    <button class="button-inner button4-color" id="mapa" ion-button danger style="width: 325px; height: 100px;" (click)="seleccionarMapa()">
+      Cómo llegar a la facultad &nbsp;&nbsp;<ion-icon name="ios-map"></ion-icon>
     </button><br>
 </div>
 
@@ -419,8 +424,8 @@
        <agm-marker [latitude]="latitud" [longitude]="longitud" [label]="'UTN Fra'"></agm-marker>
       </agm-map>
 
-    <button class="button-inner button6-color" id="menu" ion-button danger (click)="volver()">
-      Volver
+    <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
+      <ion-icon name="md-arrow-round-back"></ion-icon>&nbsp;&nbsp; Volver 
     </button>
 </div>
 
@@ -456,9 +461,10 @@
     </ul>
   </div>
 
-  <button class="button-inner button6-color" id="pregunta1" ion-button danger (click)="volver()">
-    Volver
+  <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
+    <ion-icon name="md-arrow-round-back"></ion-icon>&nbsp;&nbsp; Volver  
   </button><br>
+
    
 </div>
 
@@ -482,15 +488,15 @@
           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
           <!--<td> <button class="btn btn-primary" (click)="responderCuestionario();"> Responder </button> </td>-->
               <button class="button-inner button1-color" item-width="25px" ion-button danger (click)="responderCuestionario()">
-                Responder
+                Responder &nbsp;&nbsp;<ion-icon name="md-arrow-forward"></ion-icon>&nbsp;&nbsp; 
               </button>
           <!--<input type= "hidden" id= "mBorrarC"  (click)=".open()">-->
           </tr>
         </tbody>
       </table>
     </div>
-        <br><br><button class="button-inner button6-color" item-width="10px" ion-button danger (click)="volver()">
-          Volver
+        <br><br><button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
+          <ion-icon name="md-arrow-round-back"></ion-icon>&nbsp;&nbsp; Volver 
         </button>
   </div>
 
@@ -544,12 +550,12 @@
     </label><br><br>
 
     <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="enviarRespuestas()">
-      Enviar respuestas
+      Enviar respuestas &nbsp;&nbsp;<ion-icon name="md-arrow-forward"></ion-icon> 
     </button><br>
 
-    <button class="button-inner button6-color" id="opcion1" ion-button danger (click)="volver()">
-      Cancelar
-    </button><br>
+    <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
+      Cancelar &nbsp;&nbsp;<ion-icon name="md-close-circle"></ion-icon>
+    </button>
 
     <!--<button class="button-inner button5-color" id="opcion1" ion-button danger (click)="cambiarVistaProfesor()">
       Ver Profesor
@@ -604,16 +610,13 @@
     </label><br><br>
 
     <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="enviarRespuestas()">
-      Enviar respuestas
+      Enviar respuestas &nbsp;&nbsp;<ion-icon name="md-arrow-forward"></ion-icon> 
     </button><br>
 
-    <button class="button-inner button6-color" id="opcion1" ion-button danger (click)="volver()">
-      Cancelar
-    </button><br>
+    <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
+      Cancelar &nbsp;&nbsp;<ion-icon name="md-close-circle"></ion-icon>
+    </button>
 
-    <!--<button class="button-inner button5-color" id="opcion1" ion-button danger (click)="cambiarVistaProfesor()">
-      Ver Profesor
-    </button><br>-->
     </div>
   </div>
   </div>
