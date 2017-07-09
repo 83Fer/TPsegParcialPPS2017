@@ -94,7 +94,7 @@
           <td><strong>{{ cuestionarioPrueba }}</strong></td>
           <td>&nbsp;&nbsp;</td>
           <td><button class="button-inner button1-color" item-width="10px" ion-button danger (click)="mirarCuestionario()">
-                Ver
+                Ver &nbsp;&nbsp;<ion-icon name="ios-search"></ion-icon>
               </button></td>
           </tr>
         </tbody>
@@ -549,7 +549,7 @@
       <input type="checkbox" name="pregunta4" value="pregunta4respuesta3">{{pregunta4respuesta1}}
     </label><br><br>
 
-    <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="enviarRespuestas()">
+    <button class="button-inner button1-color" style="width: 325px; height: 40px;" ion-button danger (click)="enviarRespuestas()">
       Enviar respuestas &nbsp;&nbsp;<ion-icon name="md-arrow-forward"></ion-icon> 
     </button><br>
 
