@@ -56,17 +56,16 @@
             <td class="col-sm-1">&nbsp;&nbsp;</td>
             <th class="col-sm-3">Borrar</th>
           </tr>
-        </thead>
-         <!--*ngFor="let datos of datosC" style="text-align: left;"-->
-        <tbody> 
+        </thead>     
+        <tbody *ngFor="let item of listaCuestionario" style="text-align: left;">  
           <tr>
-          <td><strong>{{ cuestionarioPrueba }}</strong></td>
+          <td><strong>{{ item.titulo }}</strong></td>
           <td>&nbsp;&nbsp;</td>
-          <td><button class="button-inner button5-color" item-width="10px" ion-button danger (click)="modificarCuestionario()">
+          <td><button class="button-inner button7-color" item-width="10px" ion-button danger (click)="modificarCuestionarioPopUp(item.idCuestionario, item.titulo)">
                 Modificar &nbsp;<ion-icon name="md-create"></ion-icon>
               </button></td>
           <td>&nbsp;&nbsp;</td>
-          <td><button class="button-inner button6-color" item-width="10px" ion-button danger (click)="eliminarCuestionario()">
+          <td><button class="button-inner button6-color" item-width="10px" ion-button danger (click)="eliminarCuestionarioPopUp(item.idCuestionario, item.titulo)">
                 Borrar &nbsp;<ion-icon name="ios-trash"></ion-icon>
               </button></td>
           </tr>
@@ -88,10 +87,9 @@
             <th class="col-sm-3">Ver</th>
           </tr>
         </thead>
-         <!--*ngFor="let datos of datosC" style="text-align: left;"-->
-        <tbody> 
+        <tbody *ngFor="let item of listaCuestionario" style="text-align: left;"> 
           <tr>
-          <td><strong>{{ cuestionarioPrueba }}</strong></td>
+          <td><strong>{{item.titulo}}</strong></td>
           <td>&nbsp;&nbsp;</td>
           <td><button class="button-inner button1-color" item-width="10px" ion-button danger (click)="mirarCuestionario()">
                 Ver &nbsp;&nbsp;<ion-icon name="ios-search"></ion-icon>
@@ -480,17 +478,14 @@
             <th class="col-sm-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th class="col-sm-3">ACCIÓN</th>
           </tr>
-        </thead>
-         <!--*ngFor="let datos of datosC" style="text-align: left;"-->
-        <tbody> 
+        </thead>   
+        <tbody *ngFor="let item of listaCuestionario" style="text-align: left;"> 
           <tr>
-          <td><strong>{{ cuestionarioPrueba }}</strong></td>
+          <td><strong>{{item.titulo}}</strong></td>
           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-          <!--<td> <button class="btn btn-primary" (click)="responderCuestionario();"> Responder </button> </td>-->
               <button class="button-inner button1-color" item-width="25px" ion-button danger (click)="responderCuestionario()">
                 Responder &nbsp;&nbsp;<ion-icon name="md-arrow-forward"></ion-icon>&nbsp;&nbsp; 
               </button>
-          <!--<input type= "hidden" id= "mBorrarC"  (click)=".open()">-->
           </tr>
         </tbody>
       </table>

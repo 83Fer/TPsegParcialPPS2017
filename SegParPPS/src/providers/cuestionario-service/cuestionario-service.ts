@@ -64,6 +64,7 @@ export class CuestionarioServiceProvider {
   // Traer todos los cuestionarios de un profesor(id del profesor)
   TraerTodosLosCuestionariosPorProfesor(id: number)
   {
+    console.info(id);
     let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idProf/" + id;    
     return this.http
       .get(url)
@@ -99,7 +100,7 @@ export class CuestionarioServiceProvider {
   {
     let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/" + id;    
     return this.http
-      .get(url)
+      .delete(url)
       .toPromise()
       .then(this.ExtraerDatos)
       .catch(this.ErrorExtraerDatos);

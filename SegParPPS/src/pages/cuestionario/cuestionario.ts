@@ -33,10 +33,16 @@ export class CuestionarioPage {
 
   tituloCursos: string= "Cursos";
   tituloCuestionarios: string= "Cuestionarios";
-	mensaje: string= "";
+  mensaje: string= "";
+  
+  idUsuario: number= 1;
+  idCurso: number= 3;
+  listaCuestionario: Array<any>;
 
   // Perfil
   perfil: string= "";
+
+  aModificar: any= null;
 
   // Variables Cuestionario
   nombreCuestionario: string= "Titulo";
@@ -58,7 +64,7 @@ export class CuestionarioPage {
   pregunta4respuesta2: string= "2resp 4preg";
   pregunta4respuesta3: string= "3resp 4preg";
 
-  // Vista Alumno
+  // Vista Profesor
   verElCuestionario: string = "";
 
   // Vista Alumno
@@ -166,10 +172,10 @@ export class CuestionarioPage {
     this.vibration.vibrate(100);
   }
 
-  modificarCuestionario(){
+  modificarCuestionarioPopUp(id, titulo){
     this.muestraOpciones= "";
     let ventana = this.alertCtrl.create({
-                  title: "¿Desea modificar el cuestionario?",
+                  title: '¿Desea modificar el cuestionario "' + titulo +'"?',
                   message: this.mensaje, 
                   buttons:[
                     {
@@ -191,16 +197,17 @@ export class CuestionarioPage {
   }
 
   //////////////////////////////////////////////////////////////// Eliminar Cuestionario
-  eliminarCuestionario(){
+  eliminarCuestionarioPopUp(id, titulo){
         this.muestraOpciones= "";
         let ventana = this.alertCtrl.create({
-                  title: "¿Desea eliminar el cuestionario?",
+                  title: '¿Desea eliminar el cuestionario "' + titulo +'"?',
                   message: this.mensaje, 
                   buttons:[
                     {
                       text: "Aceptar",
                       handler: data => {
                         console.log('');
+                        this.borrarCuestionario(id);
                         }
                       },   
                     {
@@ -218,10 +225,12 @@ export class CuestionarioPage {
   //////////////////////////////////////////////////////////////// Ver Cuestionarios
   verCuestionario(){
     this.valor= "ver";
+    this.obtenerCuestionariosPorProfesor(this.idUsuario);
   }
 
   editarCuestionario(){
     this.valor="editar";
+    this.obtenerCuestionariosPorProfesor(this.idUsuario);
   }
 
   mirarCuestionario(){
@@ -267,10 +276,10 @@ export class CuestionarioPage {
                       idCurso:this.curso,
                       tipo:this.tipoCuestionario,
                     };
-    //Se agrega cuestioanario a la base de datos
+    //Se agrega cuestionario a la base de datos
     this.datosApiCuestionario.AgregarCuestionario(cuestionario);
 
-    // Se crea las preguntas
+    // Se crean las preguntas
     let preguntas1={
                       idPregunta: "1",
                       idCuestionario: idMax + 1,
@@ -401,16 +410,59 @@ export class CuestionarioPage {
                       
   }
 
+  obtenerCuestionariosPorProfesor(idProfesor){
+    this.datosApiCuestionario.TraerTodosLosCuestionariosPorProfesor(idProfesor)
+    .then(datosApiCuestionario => {
+      this.listaCuestionario = datosApiCuestionario;
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+
+  obtenerCuestionariosPorCurso(idCurso){
+    this.datosApiCuestionario.TraerTodosLosCuestionariosPorCurso(idCurso)
+    .then(datosApiCuestionario => {
+      this.listaCuestionario = datosApiCuestionario;
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+
+  borrarCuestionario(idCuestionario){
+    this.datosApiCuestionario.BorrarCuestionario(idCuestionario)
+    .then(datosApiCuestionario => {
+      this.listaCuestionario = datosApiCuestionario;
+    }).catch(error => {
+      console.log(error);
+    })
+
+      var temp=this;
+      setTimeout(function(){
+          temp.obtenerCuestionariosPorProfesor(this.idUsuario);
+      }, 600);  
+  }
+
+  // modificarCuestionario(idCuestionario){
+  //   this.datosApiCuestionario.ModificarCuestionario(idCuestionario, this.aModificar)
+  //   .then(datosApiCuestionario => {
+  //     this.listaCuestionario = datosApiCuestionario;
+  //   }).catch(error => {
+  //     console.log(error);
+  //   })
+  // }
+
 // ALUMNO ///////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
 // Ver el cuestionario
 seleccionarCuestionarioResp(){
   this.valor= "cuestionarioAlumno";
   this.verCuestionarioAlumno= "verCuestionarios";
+  this.obtenerCuestionariosPorCurso(this.idCurso);
 }
 
 responderCuestionario(){
   this.verCuestionarioAlumno= "hacerCuestionario";
+  this.obtenerCuestionariosPorCurso(this.idCurso);
 }
 
 // MAPS ////////////////////////////////////////////////////////////////////////////////////////////////////////////
