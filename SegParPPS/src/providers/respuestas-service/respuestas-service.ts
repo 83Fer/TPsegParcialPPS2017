@@ -49,42 +49,24 @@ export class RespuestasServiceProvider {
   }
 
   // Traer respuestas de un cuestionario
- TraerRespuestasDeUnCuestionario(respuesta: any) 
+ TraerRespuestasDeUnCuestionario(cuestionario: number) 
   { 
     
-     let datos={
-       idRespuesta :  respuesta.idRespuesta ,
-       idCuestionario : respuesta.idCuestionario ,
-       idPregunta : respuesta.idPregunta,
-       descripcion: respuesta.descripcion
-      };
-            
-            console.log(datos);
-    
-   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/respuestas";
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/respuestas/" + cuestionario;
     this.http
-             .post(url , datos)
+             .get(url)
              .toPromise()
              .then()
              .catch(this.ErrorExtraerDatos)
   }
 
   // Borrar respuestas de un cuestionario
- BorrarRespuestasDeUnCuestionario(respuesta: any) 
+ BorrarRespuestasDeUnCuestionario(cuestionario: number) 
   { 
-    
-     let datos={
-       idRespuesta :  respuesta.idRespuesta ,
-       idCuestionario : respuesta.idCuestionario ,
-       idPregunta : respuesta.idPregunta,
-       descripcion: respuesta.descripcion
-      };
-            
-            console.log(datos);
-    
+
    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/respuestas";
     this.http
-             .post(url , datos)
+             .delete(url)
              .toPromise()
              .then()
              .catch(this.ErrorExtraerDatos)
@@ -111,26 +93,16 @@ export class RespuestasServiceProvider {
              .catch(this.ErrorExtraerDatos)
   }
 
-  // Traer todas las preguntas de todos los cuestionarios
+  // Traer todas las preguntas de todos los cuestionarios (para estadisticas)
  TraerTodasLasRespuestas(respuesta: any) 
   { 
-    
-     let datos={
-       idRespuesta :  respuesta.idRespuesta ,
-       idCuestionario : respuesta.idCuestionario ,
-       idPregunta : respuesta.idPregunta,
-       descripcion: respuesta.descripcion
-      };
-            
-            console.log(datos);
-    
+
    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/respuestas";
     this.http
-             .post(url , datos)
+             .get(url)
              .toPromise()
              .then()
              .catch(this.ErrorExtraerDatos)
   }
-
 
 }

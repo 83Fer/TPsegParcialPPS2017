@@ -64,7 +64,7 @@ export class CuestionarioServiceProvider {
   // Traer todos los cuestionarios de un profesor(id del profesor)
   TraerTodosLosCuestionariosPorProfesor(id: number)
   {
-    console.info(id);
+    console.info("Profesor: " + id);
     let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idProf/" + id;    
     return this.http
       .get(url)
@@ -76,6 +76,7 @@ export class CuestionarioServiceProvider {
   // Traer todos los cuestionarios de un curso(Para mostrarle a los alumnos)
   TraerTodosLosCuestionariosPorCurso(id : number)
   {
+    console.info("Curso: " + id);
     let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idCurso/" + id;    
     return this.http
       .get(url)
@@ -85,7 +86,7 @@ export class CuestionarioServiceProvider {
   }
 
   // Traer un cuestionario(estos es para modificar) 
-  TraeUnCuestionario(id:number)
+  TraeUnCuestionario(id: number)
   {
     let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/id/" + id;    
     return this.http
@@ -93,11 +94,12 @@ export class CuestionarioServiceProvider {
       .toPromise()
       .then(this.ExtraerDatos)
       .catch(this.ErrorExtraerDatos);
-  }
+  } 
 
   // Borrar un cuestionario
-  BorrarCuestionario(id:number)
+  BorrarCuestionario(id: number)
   {
+    console.info("Borrar: " + id);
     let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/" + id;    
     return this.http
       .delete(url)
@@ -107,7 +109,7 @@ export class CuestionarioServiceProvider {
   }
 
   // Modificar un cuestionario
-  ModificarCuestionario(id:number, cuestionario: any)
+  ModificarCuestionario(id: number, cuestionario: any)
   {
     let datos={
        titulo : cuestionario.titulo ,

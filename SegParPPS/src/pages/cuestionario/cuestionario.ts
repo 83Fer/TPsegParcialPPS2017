@@ -66,6 +66,7 @@ export class CuestionarioPage {
 
   // Vista Profesor
   verElCuestionario: string = "";
+  idCuestionario: number= null;
 
   // Vista Alumno
   cuestionarioResp: string= "";
@@ -436,10 +437,11 @@ export class CuestionarioPage {
       console.log(error);
     })
 
-      var temp=this;
+      /*var temp=this;
       setTimeout(function(){
+          console.log("Profesor luego de borrar: " + this.idUsuario);
           temp.obtenerCuestionariosPorProfesor(this.idUsuario);
-      }, 600);  
+      }, 600);  */
   }
 
   // modificarCuestionario(idCuestionario){

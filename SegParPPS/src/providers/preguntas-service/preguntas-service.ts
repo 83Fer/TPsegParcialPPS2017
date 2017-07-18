@@ -47,40 +47,24 @@ export class PreguntasServiceProvider {
   }
 
   // Traer todas las preguntas de un cuestionario
-  TraerTodasLasPreguntasDeUnCuestionario(pregunta: any) 
-  { 
-    
-     let datos={
-       idPregunta :  pregunta.idPregunta ,
-       idCuestionario : pregunta.idCuestionario ,
-       descripcion : pregunta.descripcion
-      };
-            
-            console.log(datos);
-    
-   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/preguntas";
+  TraerTodasLasPreguntasDeUnCuestionario(cuestionario: number) 
+  {         
+
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/preguntas/" + cuestionario;
     this.http
-             .post(url , datos)
+             .get(url)
              .toPromise()
              .then()
              .catch(this.ErrorExtraerDatos)
   }
 
   // Borrar preguntas de un cuestionario
-  BorrarPreguntasDeUnCuestionario(pregunta: any) 
+  BorrarPreguntasDeUnCuestionario(cuestionario: number) 
   { 
-    
-     let datos={
-       idPregunta :  pregunta.idPregunta ,
-       idCuestionario : pregunta.idCuestionario ,
-       descripcion : pregunta.descripcion
-      };
-            
-            console.log(datos);
-    
-   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/preguntas";
+
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/preguntas/" + cuestionario;
     this.http
-             .post(url , datos)
+             .delete(url)
              .toPromise()
              .then()
              .catch(this.ErrorExtraerDatos)
@@ -100,13 +84,13 @@ export class PreguntasServiceProvider {
     
    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/preguntas";
     this.http
-             .post(url , datos)
+             .put(url , datos)
              .toPromise()
              .then()
              .catch(this.ErrorExtraerDatos)
   }
 
-  // Traer todas las preguntas de todos los cuestionarios
+  // Traer todas las preguntas de todos los cuestionarios (para estadisticas)
   TraerTodasLasPreguntas(pregunta: any) 
   { 
     
