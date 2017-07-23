@@ -47,14 +47,14 @@ export class PreguntasServiceProvider {
   }
 
   // Traer todas las preguntas de un cuestionario
-  TraerTodasLasPreguntasDeUnCuestionario(cuestionario: number) 
+  TraerTodasLasPreguntasDeUnCuestionario(idCuestionario: number) 
   {         
 
-   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/preguntas/" + cuestionario;
-    this.http
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/preguntas/" + idCuestionario;
+   return this.http
              .get(url)
              .toPromise()
-             .then()
+             .then(this.ExtraerDatos)
              .catch(this.ErrorExtraerDatos)
   }
 

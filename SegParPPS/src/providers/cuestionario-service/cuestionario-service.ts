@@ -37,7 +37,23 @@ export class CuestionarioServiceProvider {
        fecFin : cuestionario.fecFin ,
        estado : "Alta" ,
        idCurso : cuestionario.idCurso ,
-       tipo : cuestionario.tipo 
+       tipo : cuestionario.tipo,
+                      preg1: cuestionario.preg1,
+                      preg2: cuestionario.preg2,
+                      preg3: cuestionario.preg3,
+                      preg4: cuestionario.preg4,
+                      resp1preg1: cuestionario.resp1preg1,
+                      resp2preg1: cuestionario.resp2preg1,
+                      resp3preg1: cuestionario.resp3preg1,
+                      resp1preg2: cuestionario.resp1preg2,
+                      resp2preg2: cuestionario.resp2preg2,
+                      resp3preg2: cuestionario.resp3preg2,
+                      resp1preg3: cuestionario.resp1preg3,
+                      resp2preg3: cuestionario.resp2preg3,
+                      resp3preg3: cuestionario.resp3preg3,
+                      resp1preg4: cuestionario.resp1preg4,
+                      resp2preg4: cuestionario.resp2preg4,
+                      resp3preg4: cuestionario.resp3preg4
       };
             
             console.log(datos);
@@ -101,10 +117,10 @@ export class CuestionarioServiceProvider {
   {
     console.info("Borrar: " + id);
     let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/" + id;    
-    return this.http
+    this.http
       .delete(url)
       .toPromise()
-      .then(this.ExtraerDatos)
+      .then()
       .catch(this.ErrorExtraerDatos);
   }
 
@@ -117,13 +133,29 @@ export class CuestionarioServiceProvider {
        fecFin : cuestionario.fecFin ,
        estado : cuestionario.estado ,
        idCurso : cuestionario.idCurso ,
-       tipo : cuestionario.tipo 
+       tipo : cuestionario.tipo,
+                      preg1: cuestionario.preg1,
+                      preg2: cuestionario.preg2,
+                      preg3: cuestionario.preg3,
+                      preg4: cuestionario.preg4,
+                      resp1preg1: cuestionario.resp1preg1,
+                      resp2preg1: cuestionario.resp2preg1,
+                      resp3preg1: cuestionario.resp3preg1,
+                      resp1preg2: cuestionario.resp1preg2,
+                      resp2preg2: cuestionario.resp2preg2,
+                      resp3preg2: cuestionario.resp3preg2,
+                      resp1preg3: cuestionario.resp1preg3,
+                      resp2preg3: cuestionario.resp2preg3,
+                      resp3preg3: cuestionario.resp3preg3,
+                      resp1preg4: cuestionario.resp1preg4,
+                      resp2preg4: cuestionario.resp2preg4,
+                      resp3preg4: cuestionario.resp3preg4
       };
             
             console.log(datos);
     
 
-    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/" + id;    
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/id/" + id;    
     this.http
       .put(url, datos)
       .toPromise()
@@ -131,37 +163,49 @@ export class CuestionarioServiceProvider {
       .catch(this.ErrorExtraerDatos);
   }
 
-  // Responder un cuestionario
-  // ResponderCuestionario()
-  // {
-  //   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idMax/";    
-  //   return this.http
-  //     .get(url)
-  //     .toPromise()
-  //     .then(this.ExtraerDatos)
-  //     .catch(this.ErrorExtraerDatos);
-  // }
+  // Traer todos los cuestionarios de un curso que el alumno aun no haya respondido
+  TraerTodosLosCuestionariosPorResponder(id : number)
+  {
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idCurso/" + id;    
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(this.ExtraerDatos)
+      .catch(this.ErrorExtraerDatos);
+  }
 
-  // // Traer respuestas de un cuestionario
-  // TraerRespuestasDeUnCuestionario()
-  // {
-  //   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idMax/";    
-  //   return this.http
-  //     .get(url)
-  //     .toPromise()
-  //     .then(this.ExtraerDatos)
-  //     .catch(this.ErrorExtraerDatos);
-  // }
+  // Traer todos los cuestionarios de un curso que el alumno haya respondido
+  TraerTodosLosCuestionariosRespondidos(id : number)
+  {
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idCurso/" + id;    
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(this.ExtraerDatos)
+      .catch(this.ErrorExtraerDatos);
+  }
 
-  // // Traer respuestas de todos los cuestionarios
-  // TraerRespuestasDeTodosLosCuestionarios()
-  // {
-  //   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idMax/";    
-  //   return this.http
-  //     .get(url)
-  //     .toPromise()
-  //     .then(this.ExtraerDatos)
-  //     .catch(this.ErrorExtraerDatos);
-  // }
+  // Responder cuestionario
+  GuardarRespuestas(cuestionario: any)
+  {
+    
+     let datos={
+       idUsuario :  cuestionario.idUsuario ,
+       idCuestionario : cuestionario.idCuestionario ,
+       preg1resp : cuestionario.preg1resp,
+       preg2resp: cuestionario.preg2resp,
+       preg3resp: cuestionario.preg3resp,
+       preg4resp: cuestionario.preg4resp
+
+      };           
+          console.log(datos);
+    
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/respondio";
+    this.http
+             .post(url , datos)
+             .toPromise()
+             .then()
+             .catch(this.ErrorExtraerDatos)
+  }
 
 }

@@ -91,7 +91,7 @@
           <tr>
           <td><strong>{{item.titulo}}</strong></td>
           <td>&nbsp;&nbsp;</td>
-          <td><button class="button-inner button1-color" item-width="10px" ion-button danger (click)="mirarCuestionario()">
+          <td><button class="button-inner button1-color" item-width="10px" ion-button danger (click)="mirarCuestionario(item.idCuestionario)">
                 Ver &nbsp;&nbsp;<ion-icon name="ios-search"></ion-icon>
               </button></td>
           </tr>
@@ -104,52 +104,54 @@
 </div>
 
 <div *ngIf="valor == 'verCuestionarioProfesor'"> 
-  <div *ngIf="tipoElemento == 'checkbox'"> 
-  <h4>Cuestionario {{nombreCuestionario}}</h4>
+  <div *ngIf="tipoElemento == 'checkbox'">
+  <div *ngFor="let item of listaCuestionario">  
+  <h4>Cuestionario {{item.titulo}}</h4>
 
-    <h6>{{pregunta1}}</h6>
+    <h6>{{item.preg1}}</h6>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta1" value="pregunta1respuesta1">{{pregunta1respuesta1}}
+      <input type="checkbox" name="pregunta1" value="pregunta1respuesta1">{{item.resp1preg1}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta1" value="pregunta1respuesta2">{{pregunta1respuesta2}}
+      <input type="checkbox" name="pregunta1" value="pregunta1respuesta2">{{item.resp2preg1}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta1" value="pregunta1respuesta3">{{pregunta1respuesta3}}
+      <input type="checkbox" name="pregunta1" value="pregunta1respuesta3">{{item.resp3preg1}}
     </label><br><br>
 
-    <h6>{{pregunta2}}</h6>
+    <h6>{{preg2}}</h6>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta2" value="pregunta2respuesta1">{{pregunta2respuesta1}}
+      <input type="checkbox" name="pregunta2" value="pregunta2respuesta1">{{item.resp1preg2}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta2" value="pregunta2respuesta2">{{pregunta2respuesta2}}
+      <input type="checkbox" name="pregunta2" value="pregunta2respuesta2">{{item.resp2preg2}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta2" value="pregunta2respuesta3">{{pregunta2respuesta3}}
+      <input type="checkbox" name="pregunta2" value="pregunta2respuesta3">{{item.resp3preg2}}
     </label><br><br>
 
-    <h6>{{pregunta3}}</h6>
+    <h6>{{preg3}}</h6>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta3" value="pregunta3respuesta1">{{pregunta3respuesta1}}
+      <input type="checkbox" name="pregunta3" value="pregunta3respuesta1">{{item.resp1preg3}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta3" value="pregunta3respuesta2">{{pregunta3respuesta2}}
+      <input type="checkbox" name="pregunta3" value="pregunta3respuesta2">{{item.resp2preg3}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta3" value="pregunta3respuesta3">{{pregunta3respuesta3}}
+      <input type="checkbox" name="pregunta3" value="pregunta3respuesta3">{{item.resp3preg3}}
     </label><br><br>
 
-    <h6>{{pregunta4}}</h6>
+    <h6>{{preg4}}</h6>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta4" value="pregunta4respuesta1">{{pregunta4respuesta1}}
+      <input type="checkbox" name="pregunta4" value="pregunta4respuesta1">{{item.resp1preg4}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta4" value="pregunta4respuesta2">{{pregunta4respuesta1}}
+      <input type="checkbox" name="pregunta4" value="pregunta4respuesta2">{{item.resp2preg4}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta4" value="pregunta4respuesta3">{{pregunta4respuesta1}}
+      <input type="checkbox" name="pregunta4" value="pregunta4respuesta3">{{item.resp3preg4}}
     </label><br><br>
+  </div>
 
     <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="enviarRespuestas()">
       Enviar respuestas &nbsp;&nbsp;<ion-icon name="md-arrow-forward"></ion-icon> 
@@ -161,51 +163,53 @@
   </div>
 
   <div *ngIf="tipoElemento == 'radiobutton'">
-  <h4>Cuestionario {{nombreCuestionario}}</h4>
+  <div *ngFor="let item of listaCuestionario">  
+  <h4>Cuestionario {{item.titulo}}</h4>
 
-    <h6>{{pregunta1}}</h6>
+    <h6>{{item.preg1}}</h6>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta1" value="pregunta1respuesta1">{{pregunta1respuesta1}}
+      <input type="radio" name="pregunta1" value="pregunta1respuesta1">{{item.resp1preg1}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta1" value="pregunta1respuesta2">{{pregunta1respuesta2}}
+      <input type="radio" name="pregunta1" value="pregunta1respuesta2">{{item.resp2preg1}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta1" value="pregunta1respuesta3">{{pregunta1respuesta3}}
+      <input type="radio" name="pregunta1" value="pregunta1respuesta3">{{item.resp3preg1}}
     </label><br><br>
 
-    <h6>{{pregunta2}}</h6>
+    <h6>{{item.preg2}}</h6>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta2" value="pregunta2respuesta1">{{pregunta2respuesta1}}
+      <input type="radio" name="pregunta2" value="pregunta2respuesta1">{{item.resp1preg2}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta2" value="pregunta2respuesta2">{{pregunta2respuesta2}}
+      <input type="radio" name="pregunta2" value="pregunta2respuesta2">{{item.resp2preg2}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta2" value="pregunta2respuesta3">{{pregunta2respuesta3}}
+      <input type="radio" name="pregunta2" value="pregunta2respuesta3">{{item.resp3preg2}}
     </label><br><br>
 
-    <h6>{{pregunta3}}</h6>
+    <h6>{{item.preg3}}</h6>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta3" value="pregunta3respuesta1">{{pregunta3respuesta1}}
+      <input type="radio" name="pregunta3" value="pregunta3respuesta1">{{item.resp1preg3}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta3" value="pregunta3respuesta2">{{pregunta3respuesta2}}
+      <input type="radio" name="pregunta3" value="pregunta3respuesta2">{{item.resp2preg3}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta3" value="pregunta3respuesta3">{{pregunta3respuesta3}}
+      <input type="radio" name="pregunta3" value="pregunta3respuesta3">{{item.resp3preg3}}
     </label><br><br>
 
-    <h6>{{pregunta4}}</h6>
+    <h6>{{item.preg4}}</h6>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta4" value="pregunta4respuesta1">{{pregunta4respuesta1}}
+      <input type="radio" name="pregunta4" value="pregunta4respuesta1">{{item.resp1preg4}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta4" value="pregunta4respuesta2">{{pregunta4respuesta1}}
+      <input type="radio" name="pregunta4" value="pregunta4respuesta2">{{item.resp2preg4}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta4" value="pregunta4respuesta3">{{pregunta4respuesta1}}
+      <input type="radio" name="pregunta4" value="pregunta4respuesta3">{{item.resp3preg4}}
     </label><br><br>
+  </div>
 
     <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
       <ion-icon name="md-arrow-round-back"></ion-icon>&nbsp;&nbsp; Volver 
@@ -429,44 +433,44 @@
 
 <!--Ver respondidos-->
 <div *ngIf="valor == 'respondidos'">
-  <h4>Cuestionario {{nombreCuestionario}}</h4>
+  <div *ngFor="let item of listaCuestionario">  
+  <h4>Cuestionario {{item.titulo}}</h4>
 
   <div id="list">
-    <h5>{{pregunta1}}</h5>
+    <h5>{{item.preg1}}</h5>
     <ul>
-      <li>{{pregunta1respuesta1}}</li>
+      <li>{{item.preg1resp}}</li>
     </ul>
   </div>
 
   <div id="list">
-    <h5>{{pregunta2}}</h5>
+    <h5>{{item.preg2}}</h5>
     <ul>
-      <li>{{pregunta2respuesta1}}</li>
+      <li>{{item.preg2resp}}</li>
     </ul>
   </div>
 
   <div id="list">
-    <h5>{{pregunta3}}</h5>
+    <h5>{{item.preg3}}</h5>
     <ul>
-      <li>{{pregunta3respuesta1}}</li>
+      <li>{{item.preg3resp}}</li>
     </ul>
   </div>
 
   <div id="list">
-    <h5>{{pregunta4}}</h5>
+    <h5>{{item.preg4}}</h5>
     <ul>
-      <li>{{pregunta4respuesta1}}</li>
+      <li>{{item.preg4resp}}</li>
     </ul>
   </div>
 
   <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
     <ion-icon name="md-arrow-round-back"></ion-icon>&nbsp;&nbsp; Volver  
   </button><br>
-
-   
+</div>
 </div>
 
-<!--Cuestionario-->
+<!--Ver cuestionarios-->
 <div *ngIf="valor == 'cuestionarioAlumno'">
 
   <div *ngIf="verCuestionarioAlumno == 'verCuestionarios'"> 
@@ -483,7 +487,7 @@
           <tr>
           <td><strong>{{item.titulo}}</strong></td>
           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-              <button class="button-inner button1-color" item-width="25px" ion-button danger (click)="responderCuestionario()">
+              <button class="button-inner button1-color" item-width="25px" ion-button danger (click)="responderCuestionario(item.idCuestionario)">
                 Responder &nbsp;&nbsp;<ion-icon name="md-arrow-forward"></ion-icon>&nbsp;&nbsp; 
               </button>
           </tr>
@@ -493,128 +497,159 @@
         <br><br><button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
           <ion-icon name="md-arrow-round-back"></ion-icon>&nbsp;&nbsp; Volver 
         </button>
+
+</div>
+<!--Ver cuestionarios respondidos-->
+<div *ngIf="valor == 'cuestionarioAlumnoRespondidos'">
+
+  <div *ngIf="verCuestionarioAlumno == 'verCuestionariosRespondidos'"> 
+    <div class="container">      
+      <table class="table">
+        <thead style="font-size: 14px;text-align: center;">
+          <tr>
+            <th class="col-sm-3">NOMBRE</th>
+            <th class="col-sm-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th class="col-sm-3">VER</th>
+          </tr>
+        </thead>   
+        <tbody *ngFor="let item of listaCuestionario" style="text-align: left;"> 
+          <tr>
+          <td><strong>{{item.titulo}}</strong></td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <button class="button-inner button1-color" item-width="25px" ion-button danger (click)="verCuestionarioRespondido(item.idCuestionario)">
+                Ver &nbsp;&nbsp;<ion-icon name="md-arrow-forward"></ion-icon>&nbsp;&nbsp; 
+              </button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+        <br><br><button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
+          <ion-icon name="md-arrow-round-back"></ion-icon>&nbsp;&nbsp; Volver 
+        </button>
   </div>
-
-
- <div *ngIf="verCuestionarioAlumno == 'hacerCuestionario'"> 
+</div>
+<!--Hacer cuestionario-->
+<div *ngIf="verCuestionarioAlumno == 'hacerCuestionario'"> 
+  <!--Checkbox-->
   <div *ngIf="tipoElemento == 'checkbox'"> 
-  <h4>Cuestionario {{nombreCuestionario}}</h4>
+    <div *ngFor="let item of listaCuestionario">  
+  <h4>Cuestionario {{item.titulo}}</h4>
 
-    <h6>{{pregunta1}}</h6>
+    <h6>{{item.preg1}}</h6>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta1" value="pregunta1respuesta1">{{pregunta1respuesta1}}
+      <input type="checkbox" name="pregunta1" [(ngModel)] = "respuesta1" value="{{item.resp1preg1}}">{{item.resp1preg1}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta1" value="pregunta1respuesta2">{{pregunta1respuesta2}}
+      <input type="checkbox" name="pregunta1" [(ngModel)] = "respuesta1" value="{{item.resp2preg1}}">{{item.resp2preg1}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta1" value="pregunta1respuesta3">{{pregunta1respuesta3}}
+      <input type="checkbox" name="pregunta1" [(ngModel)] = "respuesta1" value="{{item.resp3preg1}}">{{item.resp3preg1}}
     </label><br><br>
 
-    <h6>{{pregunta2}}</h6>
+    <h6>{{item.preg2}}</h6>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta2" value="pregunta2respuesta1">{{pregunta2respuesta1}}
+      <input type="checkbox" name="pregunta2" [(ngModel)] = "respuesta2" value="{{item.resp1preg2}}">{{item.resp1preg2}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta2" value="pregunta2respuesta2">{{pregunta2respuesta2}}
+      <input type="checkbox" name="pregunta2" [(ngModel)] = "respuesta2" value="{{item.resp2preg2}}">{{item.resp2preg2}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta2" value="pregunta2respuesta3">{{pregunta2respuesta3}}
+      <input type="checkbox" name="pregunta2" [(ngModel)] = "respuesta2" value="{{item.resp3preg2}}">{{item.resp3preg2}}
     </label><br><br>
 
-    <h6>{{pregunta3}}</h6>
+    <h6>{{item.preg3}}</h6>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta3" value="pregunta3respuesta1">{{pregunta3respuesta1}}
+      <input type="checkbox" name="pregunta3" [(ngModel)] = "respuesta3" value="{{item.resp1preg3}}">{{item.resp1preg3}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta3" value="pregunta3respuesta2">{{pregunta3respuesta2}}
+      <input type="checkbox" name="pregunta3" [(ngModel)] = "respuesta3" value="{{item.resp2preg3}}">{{item.resp2preg3}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta3" value="pregunta3respuesta3">{{pregunta3respuesta3}}
+      <input type="checkbox" name="pregunta3" [(ngModel)] = "respuesta3" value="{{item.resp3preg3}}">{{item.resp3preg3}}
     </label><br><br>
 
-    <h6>{{pregunta4}}</h6>
+    <h6>{{item.preg4}}</h6>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta4" value="pregunta4respuesta1">{{pregunta4respuesta1}}
+      <input type="checkbox" name="pregunta4" [(ngModel)] = "respuesta4" value="{{item.resp1preg4}}">{{item.resp1preg4}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta4" value="pregunta4respuesta2">{{pregunta4respuesta1}}
+      <input type="checkbox" name="pregunta4" [(ngModel)] = "respuesta4" value="{{item.resp2preg4}}">{{item.resp2preg4}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="checkbox" name="pregunta4" value="pregunta4respuesta3">{{pregunta4respuesta1}}
+      <input type="checkbox" name="pregunta4" [(ngModel)] = "respuesta4" value="{{item.resp3preg4}}">{{item.resp3preg4}}
     </label><br><br>
 
-    <button class="button-inner button1-color" style="width: 325px; height: 40px;" ion-button danger (click)="enviarRespuestas()">
+    <div *ngIf="mostrarBotones == 'mostrar'">
+    <button class="button-inner button1-color" style="width: 325px; height: 40px;" ion-button danger (click)="enviarRespuestas(item.idCuestionario)">
       Enviar respuestas &nbsp;&nbsp;<ion-icon name="md-arrow-forward"></ion-icon> 
     </button><br>
-
+</div>
     <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
       Cancelar &nbsp;&nbsp;<ion-icon name="md-close-circle"></ion-icon>
     </button>
+    </div>
+</div>
 
-    <!--<button class="button-inner button5-color" id="opcion1" ion-button danger (click)="cambiarVistaProfesor()">
-      Ver Profesor
-    </button><br>-->
-  </div>
-
+  <!--Radiobutton-->
   <div *ngIf="tipoElemento == 'radiobutton'">
-  <h4>Cuestionario {{nombreCuestionario}}</h4>
+  <div *ngFor="let item of listaCuestionario">  
+  <h4>Cuestionario {{item.titulo}}</h4>
 
-    <h6>{{pregunta1}}</h6>
+    <h6>{{item.preg1}}</h6>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta1" value="pregunta1respuesta1">{{pregunta1respuesta1}}
+      <input type="radio" name="pregunta1" [(ngModel)] = "respuesta1" value="{{item.resp1preg1}}">{{item.resp1preg1}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta1" value="pregunta1respuesta2">{{pregunta1respuesta2}}
+      <input type="radio" name="pregunta1" [(ngModel)] = "respuesta1"  value="{{item.resp2preg1}}">{{item.resp2preg1}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta1" value="pregunta1respuesta3">{{pregunta1respuesta3}}
+      <input type="radio" name="pregunta1" [(ngModel)] = "respuesta1"  value="{{item.resp3preg1}}">{{item.resp3preg1}}
     </label><br><br>
 
-    <h6>{{pregunta2}}</h6>
+    <h6>{{item.preg2}}</h6>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta2" value="pregunta2respuesta1">{{pregunta2respuesta1}}
+      <input type="radio" name="pregunta2" [(ngModel)] = "respuesta2" value="{{item.resp1preg2}}">{{item.resp1preg2}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta2" value="pregunta2respuesta2">{{pregunta2respuesta2}}
+      <input type="radio" name="pregunta2" [(ngModel)] = "respuesta2" value="{{item.resp2preg2}}">{{item.resp2preg2}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta2" value="pregunta2respuesta3">{{pregunta2respuesta3}}
+      <input type="radio" name="pregunta2" [(ngModel)] = "respuesta2" value="{{item.resp3preg2}}">{{item.resp3preg2}}
     </label><br><br>
 
-    <h6>{{pregunta3}}</h6>
+    <h6>{{item.preg3}}</h6>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta3" value="pregunta3respuesta1">{{pregunta3respuesta1}}
+      <input type="radio" name="pregunta3" [(ngModel)] = "respuesta3" value="{{item.resp1preg3}}">{{item.resp1preg3}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta3" value="pregunta3respuesta2">{{pregunta3respuesta2}}
+      <input type="radio" name="pregunta3" [(ngModel)] = "respuesta3" value="{{item.resp2preg3}}">{{item.resp2preg3}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta3" value="pregunta3respuesta3">{{pregunta3respuesta3}}
+      <input type="radio" name="pregunta3" [(ngModel)] = "respuesta3" value="{{item.resp3preg3}}">{{item.resp3preg3}}
     </label><br><br>
 
-    <h6>{{pregunta4}}</h6>
+    <h6>{{item.preg4}}</h6>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta4" value="pregunta4respuesta1">{{pregunta4respuesta1}}
+      <input type="radio" name="pregunta4" [(ngModel)] = "respuesta4" value="{{item.resp1preg4}}">{{item.resp1preg4}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta4" value="pregunta4respuesta2">{{pregunta4respuesta1}}
+      <input type="radio" name="pregunta4" [(ngModel)] = "respuesta4" value="{{item.resp2preg4}}">{{item.resp2preg4}}
     </label><br>
     <label class="checkbox-inline">
-      <input type="radio" name="pregunta4" value="pregunta4respuesta3">{{pregunta4respuesta1}}
+      <input type="radio" name="pregunta4" [(ngModel)] = "respuesta4" value="{{item.resp3preg4}}">{{item.resp3preg4}}
     </label><br><br>
 
-    <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="enviarRespuestas()">
+    <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="enviarRespuestas(item.idCuestionario)">
       Enviar respuestas &nbsp;&nbsp;<ion-icon name="md-arrow-forward"></ion-icon> 
     </button><br>
-
+</div>
     <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
       Cancelar &nbsp;&nbsp;<ion-icon name="md-close-circle"></ion-icon>
     </button>
 
     </div>
   </div>
-  </div>
+</div>
 </div>
 
 </ion-content>

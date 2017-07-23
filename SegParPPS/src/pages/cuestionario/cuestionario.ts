@@ -36,9 +36,8 @@ export class CuestionarioPage {
   mensaje: string= "";
   
   idUsuario: number= 1;
-  idCurso: number= 3;
+  idCurso: number= 1;
   listaCuestionario: Array<any>;
-
   // Perfil
   perfil: string= "";
 
@@ -71,8 +70,13 @@ export class CuestionarioPage {
   // Vista Alumno
   cuestionarioResp: string= "";
   verCuestionarioAlumno: string = "";
+  mostrarBotones: string = "mostrar";
 
   cuestionarioPrueba: string= "Prueba";
+  respuesta1: string= "";
+  respuesta2: string= "";
+  respuesta3: string= "";
+  respuesta4: string= "";
 
   //Maps
   latitud: number = -34.662251;
@@ -207,7 +211,7 @@ export class CuestionarioPage {
                     {
                       text: "Aceptar",
                       handler: data => {
-                        console.log('');
+                        console.log("ID a borrar: " + id);
                         this.borrarCuestionario(id);
                         }
                       },   
@@ -234,7 +238,9 @@ export class CuestionarioPage {
     this.obtenerCuestionariosPorProfesor(this.idUsuario);
   }
 
-  mirarCuestionario(){
+  mirarCuestionario(id:number){
+    console.log("MirarCuest id " + id);
+    this.obtenerCuestionarioPorId(id);
     this.valor= "verCuestionarioProfesor";
   }
 
@@ -276,141 +282,28 @@ export class CuestionarioPage {
                       fecFin: "2017-12-31",//ingresar fecha fin de cuestionario
                       idCurso:this.curso,
                       tipo:this.tipoCuestionario,
+                      preg1: this.pregunta1,
+                      preg2: this.pregunta2,
+                      preg3: this.pregunta3,
+                      preg4: this.pregunta4,
+                      resp1preg1: this.pregunta1respuesta1,
+                      resp2preg1: this.pregunta1respuesta2,
+                      resp3preg1: this.pregunta1respuesta3,
+                      resp1preg2: this.pregunta2respuesta1,
+                      resp2preg2: this.pregunta2respuesta2,
+                      resp3preg2: this.pregunta2respuesta3,
+                      resp1preg3: this.pregunta3respuesta1,
+                      resp2preg3: this.pregunta3respuesta2,
+                      resp3preg3: this.pregunta3respuesta3,
+                      resp1preg4: this.pregunta4respuesta1,
+                      resp2preg4: this.pregunta3respuesta2,
+                      resp3preg4: this.pregunta4respuesta3
                     };
     //Se agrega cuestionario a la base de datos
-    this.datosApiCuestionario.AgregarCuestionario(cuestionario);
-
-    // Se crean las preguntas
-    let preguntas1={
-                      idPregunta: "1",
-                      idCuestionario: idMax + 1,
-                      descripcion:this.pregunta1
-                    };
-    this.datosApiPreguntas.AgregarPregunta(preguntas1);
-
-    let preguntas2={
-                      idPregunta: "2",
-                      idCuestionario: idMax + 1,
-                      descripcion:this.pregunta2
-                    };
-    this.datosApiPreguntas.AgregarPregunta(preguntas2);
-
-    let preguntas3={
-                      idPregunta: "3",
-                      idCuestionario: idMax + 1,
-                      descripcion:this.pregunta3
-                    };
-    this.datosApiPreguntas.AgregarPregunta(preguntas3);
-
-    let preguntas4={
-                      idPregunta: "4",
-                      idCuestionario: idMax + 1,
-                      descripcion:this.pregunta4
-                    };
-    this.datosApiPreguntas.AgregarPregunta(preguntas4);
-    
-
-    //Se crean las Respuestas
-
-    let rsp1prg1={
-                      idRespuesta: "1",
-                      idCuestionario: idMax + 1,
-                      idPregunta: "1",
-                      descripcion:this.pregunta1respuesta1
-                    };
-    this.datosApiRespuestas.AgregarRespuesta(rsp1prg1);
-
-    let rsp2prg1={
-                      idRespuesta: "2",
-                      idCuestionario: idMax + 1,
-                      idPregunta: "1",
-                      descripcion:this.pregunta1respuesta2
-                    };
-    this.datosApiRespuestas.AgregarRespuesta(rsp2prg1);
-
-    let rsp3prg1={
-                      idRespuesta: "3",
-                      idCuestionario: idMax + 1,
-                      idPregunta: "1",
-                      descripcion:this.pregunta1respuesta3
-                    };
-    this.datosApiRespuestas.AgregarRespuesta(rsp3prg1);             
-
-    let rsp1prg2={
-                      idRespuesta: "1",
-                      idCuestionario: idMax + 1,
-                      idPregunta: "2",
-                      descripcion:this.pregunta2respuesta1
-                    };
-    this.datosApiRespuestas.AgregarRespuesta(rsp1prg2);
-
-    let rsp2prg2={
-                      idRespuesta: "2",
-                      idCuestionario: idMax + 1,
-                      idPregunta: "2",
-                      descripcion:this.pregunta2respuesta2
-                    };
-    this.datosApiRespuestas.AgregarRespuesta(rsp2prg2);  
-
-    let rsp3prg2={
-                      idRespuesta: "3",
-                      idCuestionario: idMax + 1,
-                      idPregunta: "2",
-                      descripcion:this.pregunta1respuesta3
-                    };
-    this.datosApiRespuestas.AgregarRespuesta(rsp3prg2);
-
-    let rsp1prg3={
-                      idRespuesta: "1",
-                      idCuestionario: idMax + 1,
-                      idPregunta: "3",
-                      descripcion:this.pregunta3respuesta1
-                    };
-    this.datosApiRespuestas.AgregarRespuesta(rsp1prg3);
-
-    let rsp2prg3={
-                      idRespuesta: "2",
-                      idCuestionario: idMax + 1,
-                      idPregunta: "3",
-                      descripcion:this.pregunta3respuesta3
-                    };
-    this.datosApiRespuestas.AgregarRespuesta(rsp2prg3);
-
-    let rsp3prg3={
-                      idRespuesta: "3",
-                      idCuestionario: idMax + 1,
-                      idPregunta: "3",
-                      descripcion:this.pregunta3respuesta3
-                    };
-    this.datosApiRespuestas.AgregarRespuesta(rsp3prg3);
-
-    let rsp1prg4={
-                      idRespuesta: "1",
-                      idCuestionario: idMax + 1,
-                      idPregunta: "4",
-                      descripcion:this.pregunta4respuesta1
-                    };
-    this.datosApiRespuestas.AgregarRespuesta(rsp1prg4);
-
-    let rsp2prg4={
-                      idRespuesta: "2",
-                      idCuestionario: idMax + 1,
-                      idPregunta: "4",
-                      descripcion:this.pregunta4respuesta2
-                    };
-    this.datosApiRespuestas.AgregarRespuesta(rsp2prg4);
-
-    let rsp3prg4={
-                      idRespuesta: "3",
-                      idCuestionario: idMax + 1,
-                      idPregunta: "4",
-                      descripcion:this.pregunta4respuesta3
-                    };
-    this.datosApiRespuestas.AgregarRespuesta(rsp3prg4);
-
-                      
+    this.datosApiCuestionario.AgregarCuestionario(cuestionario);                
   }
 
+  //////////////////////////////////////////////////////////////// Obtiene todos los cuestionarios de un profesor
   obtenerCuestionariosPorProfesor(idProfesor){
     this.datosApiCuestionario.TraerTodosLosCuestionariosPorProfesor(idProfesor)
     .then(datosApiCuestionario => {
@@ -420,6 +313,7 @@ export class CuestionarioPage {
     })
   }
 
+  //////////////////////////////////////////////////////////////// Obtiene todos los cuestionarios de un curso
   obtenerCuestionariosPorCurso(idCurso){
     this.datosApiCuestionario.TraerTodosLosCuestionariosPorCurso(idCurso)
     .then(datosApiCuestionario => {
@@ -429,19 +323,25 @@ export class CuestionarioPage {
     })
   }
 
-  borrarCuestionario(idCuestionario){
-    this.datosApiCuestionario.BorrarCuestionario(idCuestionario)
+  //////////////////////////////////////////////////////////////// Obtiene un cuestionario
+  obtenerCuestionarioPorId(idCuestionario){
+    this.datosApiCuestionario.TraeUnCuestionario(idCuestionario)
     .then(datosApiCuestionario => {
       this.listaCuestionario = datosApiCuestionario;
     }).catch(error => {
       console.log(error);
     })
+  }
 
-      /*var temp=this;
+  //////////////////////////////////////////////////////////////// Borra un cuestionario
+  borrarCuestionario(idCuestionario){
+    this.datosApiCuestionario.BorrarCuestionario(idCuestionario);
+
+      var temp=this;
       setTimeout(function(){
-          console.log("Profesor luego de borrar: " + this.idUsuario);
-          temp.obtenerCuestionariosPorProfesor(this.idUsuario);
-      }, 600);  */
+          console.log("Profesor luego de borrar: " + temp.idUsuario);
+          temp.obtenerCuestionariosPorProfesor(temp.idUsuario);
+      }, 600);
   }
 
   // modificarCuestionario(idCuestionario){
@@ -462,9 +362,9 @@ seleccionarCuestionarioResp(){
   this.obtenerCuestionariosPorCurso(this.idCurso);
 }
 
-responderCuestionario(){
+responderCuestionario(idCuestionario){
   this.verCuestionarioAlumno= "hacerCuestionario";
-  this.obtenerCuestionariosPorCurso(this.idCurso);
+  this.obtenerCuestionarioPorId(idCuestionario);
 }
 
 // MAPS ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -477,8 +377,32 @@ responderCuestionario(){
     this.valor= "";
   }
 
+// RESPONDIDOS ////////////////////////////////////////////////////////////////////////////////////////////////////
   verRespondidos(){
+    this.valor= "cuestionarioAlumnoRespondidos";
+    this.verCuestionarioAlumno= "verCuestionariosRespondidos";
+    this.obtenerCuestionariosPorCurso(this.idCurso);
+  }
+
+  // Responder Cuestionarios
+  enviarRespuestas(idCuestionario){
+
+    // Se crean respuestas
+    let cuestionario={
+                      idUsuario: "5",//hacerlo dinamico pidiendo el id Usuario
+                      idCuestionario: idCuestionario,
+                      preg1resp: this.respuesta1,
+                      preg2resp: this.respuesta2,
+                      preg3resp: this.respuesta3,
+                      preg4resp: this.respuesta4
+                    };
+    //Se agregan respuestas a la base de datos
+    this.datosApiCuestionario.GuardarRespuestas(cuestionario);          
+  }
+
+  verCuestionarioRespondido(idCuestionario){
     this.valor= "respondidos";
+
   }
 
 }

@@ -52,11 +52,11 @@ export class RespuestasServiceProvider {
  TraerRespuestasDeUnCuestionario(cuestionario: number) 
   { 
     
-   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/respuestas/" + cuestionario;
-    this.http
+   let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/respuestas/id/" + cuestionario;
+   return this.http
              .get(url)
              .toPromise()
-             .then()
+             .then(this.ExtraerDatos)
              .catch(this.ErrorExtraerDatos)
   }
 
