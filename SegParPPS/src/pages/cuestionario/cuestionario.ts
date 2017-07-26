@@ -378,18 +378,20 @@ responderCuestionario(idCuestionario){
   }
 
 // RESPONDIDOS ////////////////////////////////////////////////////////////////////////////////////////////////////
+
   verRespondidos(){
-    this.valor= "cuestionarioAlumnoRespondidos";
-    this.verCuestionarioAlumno= "verCuestionariosRespondidos";
-    this.obtenerCuestionariosPorCurso(this.idCurso);
-  }
+  this.valor= "cuestionarioAlumno";
+  this.verCuestionarioAlumno= "verCuestionariosRespondidos";
+  this.obtenerCuestionariosPorCurso(this.idCurso);
+}
+
 
   // Responder Cuestionarios
   enviarRespuestas(idCuestionario){
 
     // Se crean respuestas
     let cuestionario={
-                      idUsuario: "5",//hacerlo dinamico pidiendo el id Usuario
+                      idUsuario: "4",//hacerlo dinamico pidiendo el id Usuario
                       idCuestionario: idCuestionario,
                       preg1resp: this.respuesta1,
                       preg2resp: this.respuesta2,
@@ -403,6 +405,12 @@ responderCuestionario(idCuestionario){
   verCuestionarioRespondido(idCuestionario){
     this.valor= "respondidos";
 
+    this.datosApiCuestionario.TraerUnCuestionarioRespondido(4, 22)
+    .then(datosApiCuestionario => {
+      this.listaCuestionario = datosApiCuestionario;
+    }).catch(error => {
+      console.log(error);
+    })
   }
 
 }

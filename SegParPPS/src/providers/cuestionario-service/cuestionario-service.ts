@@ -185,6 +185,18 @@ export class CuestionarioServiceProvider {
       .catch(this.ErrorExtraerDatos);
   }
 
+  // Traer un cuestionario que un alumno haya respondido
+  TraerUnCuestionarioRespondido(idUsuario : number, idCuestionario : number)
+  {
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/respondio/" + idUsuario + "/" + idCuestionario;    
+
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(this.ExtraerDatos)
+      .catch(this.ErrorExtraerDatos);
+  }
+
   // Responder cuestionario
   GuardarRespuestas(cuestionario: any)
   {
