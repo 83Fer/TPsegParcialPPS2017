@@ -300,7 +300,8 @@ export class CuestionarioPage {
                       resp3preg4: this.pregunta4respuesta3
                     };
     //Se agrega cuestionario a la base de datos
-    this.datosApiCuestionario.AgregarCuestionario(cuestionario);                
+    this.datosApiCuestionario.AgregarCuestionario(cuestionario);  
+    document.getElementById("volverMenuProf").click();              
   }
 
   //////////////////////////////////////////////////////////////// Obtiene todos los cuestionarios de un profesor
@@ -355,18 +356,6 @@ export class CuestionarioPage {
 
 // ALUMNO ///////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
-// Ver el cuestionario
-seleccionarCuestionarioResp(){
-  this.valor= "cuestionarioAlumno";
-  this.verCuestionarioAlumno= "verCuestionarios";
-  this.obtenerCuestionariosPorCurso(this.idCurso);
-}
-
-responderCuestionario(idCuestionario){
-  this.verCuestionarioAlumno= "hacerCuestionario";
-  this.obtenerCuestionarioPorId(idCuestionario);
-}
-
 // MAPS ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   seleccionarMapa(){
@@ -378,6 +367,18 @@ responderCuestionario(idCuestionario){
   }
 
 // RESPONDIDOS ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Ver el cuestionario
+seleccionarCuestionarioResp(){
+  this.valor= "cuestionarioAlumno";
+  this.verCuestionarioAlumno= "verCuestionarios";
+  this.obtenerCuestionariosPorCurso(this.idCurso);
+}
+
+responderCuestionario(idCuestionario){
+  this.verCuestionarioAlumno= "hacerCuestionario";
+  this.obtenerCuestionarioPorId(idCuestionario);
+}
 
   verRespondidos(){
   this.valor= "cuestionarioAlumno";
@@ -399,13 +400,14 @@ responderCuestionario(idCuestionario){
                       preg4resp: this.respuesta4
                     };
     //Se agregan respuestas a la base de datos
-    this.datosApiCuestionario.GuardarRespuestas(cuestionario);          
+    this.datosApiCuestionario.GuardarRespuestas(cuestionario);  
+    // document.getElementById("volverMenuAlum").click();        
   }
 
   verCuestionarioRespondido(idCuestionario){
     this.valor= "respondidos";
 
-    this.datosApiCuestionario.TraerUnCuestionarioRespondido(4, 22)
+    this.datosApiCuestionario.TraerUnCuestionarioRespondido(4, idCuestionario)
     .then(datosApiCuestionario => {
       this.listaCuestionario = datosApiCuestionario;
     }).catch(error => {

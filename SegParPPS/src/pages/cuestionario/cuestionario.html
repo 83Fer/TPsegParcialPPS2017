@@ -104,8 +104,8 @@
 </div>
 
 <div *ngIf="valor == 'verCuestionarioProfesor'"> 
-  <div *ngIf="tipoElemento == 'checkbox'">
   <div *ngFor="let item of listaCuestionario">  
+  <div *ngIf="item.tipo == 'checkbox'">
   <h4>Cuestionario {{item.titulo}}</h4>
 
     <h6>{{item.preg1}}</h6>
@@ -153,17 +153,16 @@
     </label><br><br>
   </div>
 
-    <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="enviarRespuestas()">
+    <!-- <button class="button-inner button1-color" id="pregunta1" ion-button danger (click)="enviarRespuestas()">
       Enviar respuestas &nbsp;&nbsp;<ion-icon name="md-arrow-forward"></ion-icon> 
-    </button><br>
+    </button><br> -->
 
-    <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
+    <!-- <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
       Cancelar &nbsp;&nbsp;<ion-icon name="md-close-circle"></ion-icon>
-    </button>
-  </div>
+    </button> -->
 
-  <div *ngIf="tipoElemento == 'radiobutton'">
   <div *ngFor="let item of listaCuestionario">  
+  <div *ngIf="item.tipo == 'radiobutton'">
   <h4>Cuestionario {{item.titulo}}</h4>
 
     <h6>{{item.preg1}}</h6>
@@ -214,6 +213,7 @@
     <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
       <ion-icon name="md-arrow-round-back"></ion-icon>&nbsp;&nbsp; Volver 
     </button><br>
+    </div>
     </div>
   </div>
 
@@ -393,7 +393,7 @@
     Grabar cuestionario &nbsp;&nbsp;<ion-icon name="md-done-all"></ion-icon>
   </button><br>
 
-  <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="cancelarCarga()">
+  <button id="volverMenuProf" class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="cancelarCarga()">
       Cancelar &nbsp;&nbsp;<ion-icon name="md-close-circle"></ion-icon>
   </button>
 
@@ -521,7 +521,7 @@
         </tbody>
       </table>
     </div>
-        <br><br><button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
+        <br><br><button id="volverMenuAlum" class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
           <ion-icon name="md-arrow-round-back"></ion-icon>&nbsp;&nbsp; Volver 
         </button>
 
@@ -529,8 +529,8 @@
 <!--Hacer cuestionario-->
 <div *ngIf="verCuestionarioAlumno == 'hacerCuestionario'"> 
   <!--Checkbox-->
-  <div *ngIf="tipoElemento == 'checkbox'"> 
-    <div *ngFor="let item of listaCuestionario">  
+  <div *ngFor="let item of listaCuestionario"> 
+  <div *ngIf="item.tipo == 'checkbox'">  
   <h4>Cuestionario {{item.titulo}}</h4>
 
     <h6>{{item.preg1}}</h6>
@@ -577,20 +577,19 @@
       <input type="checkbox" name="pregunta4" [(ngModel)] = "respuesta4" value="{{item.resp3preg4}}">{{item.resp3preg4}}
     </label><br><br>
 
-    <div *ngIf="mostrarBotones == 'mostrar'">
     <button class="button-inner button1-color" style="width: 325px; height: 40px;" ion-button danger (click)="enviarRespuestas(item.idCuestionario)">
       Enviar respuestas &nbsp;&nbsp;<ion-icon name="md-arrow-forward"></ion-icon> 
     </button><br>
-</div>
-    <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
+
+    <!-- <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
       Cancelar &nbsp;&nbsp;<ion-icon name="md-close-circle"></ion-icon>
-    </button>
+    </button> -->
     </div>
-</div>
+
 
   <!--Radiobutton-->
-  <div *ngIf="tipoElemento == 'radiobutton'">
-  <div *ngFor="let item of listaCuestionario">  
+
+  <div *ngIf="item.tipo == 'radiobutton'">
   <h4>Cuestionario {{item.titulo}}</h4>
 
     <h6>{{item.preg1}}</h6>
@@ -644,8 +643,7 @@
     <button class="button-inner button6-color" style="width: 325px; height: 40px;" ion-button danger (click)="volver()">
       Cancelar &nbsp;&nbsp;<ion-icon name="md-close-circle"></ion-icon>
     </button>
-
-    </div>
+</div>
   </div>
 </div>
 </div>
