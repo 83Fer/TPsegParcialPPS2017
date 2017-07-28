@@ -164,9 +164,9 @@ export class CuestionarioServiceProvider {
   }
 
   // Traer todos los cuestionarios de un curso que el alumno aun no haya respondido
-  TraerTodosLosCuestionariosPorResponder(id : number)
+  TraerTodosLosCuestionariosPorResponder(idUsuario : number, idCuestionario : number)
   {
-    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idCurso/" + id;    
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/norespondio/" + idUsuario + "/" + idCuestionario;    
     return this.http
       .get(url)
       .toPromise()
@@ -175,9 +175,9 @@ export class CuestionarioServiceProvider {
   }
 
   // Traer todos los cuestionarios de un curso que el alumno haya respondido
-  TraerTodosLosCuestionariosRespondidos(id : number)
+  TraerTodosLosCuestionariosRespondidos(idUsuario : number, idCuestionario : number)
   {
-    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/idCurso/" + id;    
+    let url = "http://tplabo4.pe.hu/ApiPractica/public/index.php/cuestionario/respondidos/" + idUsuario + "/" + idCuestionario;    
     return this.http
       .get(url)
       .toPromise()

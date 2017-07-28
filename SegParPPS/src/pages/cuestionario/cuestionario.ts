@@ -109,7 +109,6 @@ export class CuestionarioPage {
       }
     });
 
-      this.nativeAudio.preloadSimple('correcto', 'assets/sound/correcto.mp3');
   }
 
 // PROFESOR /////////////////////////////////////////////////////////////////////////////////////////////////////// 
@@ -255,11 +254,13 @@ export class CuestionarioPage {
   //////////////////////////////////////////////////////////////// Cargar Preguntas
   cargarPreguntas(){
     this.valor= "cargarRespuestas";
+    this.vibration.vibrate(100);
   }
 
   //////////////////////////////////////////////////////////////// Cargar respuestas
   cargarRespuestas(){
     this.valor= "grabarCuestionario";
+    this.vibration.vibrate(100);
   }
 
   //////////////////////////////////////////////////////////////// Cancelar Carga
@@ -280,7 +281,7 @@ export class CuestionarioPage {
                       titulo:this.nombreCuestionario,
                       fecIni: "2017-05-21",//Ingresar fecha inicial de cuestioanario
                       fecFin: "2017-12-31",//ingresar fecha fin de cuestionario
-                      idCurso:this.curso,
+                      idCurso:1,
                       tipo:this.tipoCuestionario,
                       preg1: this.pregunta1,
                       preg2: this.pregunta2,
@@ -301,22 +302,14 @@ export class CuestionarioPage {
                     };
     //Se agrega cuestionario a la base de datos
     this.datosApiCuestionario.AgregarCuestionario(cuestionario);  
-    document.getElementById("volverMenuProf").click();              
+    document.getElementById("volverMenuProf").click();  
+    this.vibration.vibrate(100); 
+    this.nativeAudio.preloadSimple('correcto', 'assets/sound/correcto.mp3');           
   }
 
   //////////////////////////////////////////////////////////////// Obtiene todos los cuestionarios de un profesor
   obtenerCuestionariosPorProfesor(idProfesor){
     this.datosApiCuestionario.TraerTodosLosCuestionariosPorProfesor(idProfesor)
-    .then(datosApiCuestionario => {
-      this.listaCuestionario = datosApiCuestionario;
-    }).catch(error => {
-      console.log(error);
-    })
-  }
-
-  //////////////////////////////////////////////////////////////// Obtiene todos los cuestionarios de un curso
-  obtenerCuestionariosPorCurso(idCurso){
-    this.datosApiCuestionario.TraerTodosLosCuestionariosPorCurso(idCurso)
     .then(datosApiCuestionario => {
       this.listaCuestionario = datosApiCuestionario;
     }).catch(error => {
@@ -343,6 +336,8 @@ export class CuestionarioPage {
           console.log("Profesor luego de borrar: " + temp.idUsuario);
           temp.obtenerCuestionariosPorProfesor(temp.idUsuario);
       }, 600);
+
+    this.vibration.vibrate(100);
   }
 
   // modificarCuestionario(idCuestionario){
@@ -366,13 +361,41 @@ export class CuestionarioPage {
     this.valor= "";
   }
 
+  //////////////////////////////////////////////////////////////// Obtiene todos los cuestionarios de un curso
+  obtenerCuestionariosPorCurso(idCurso){
+    this.datosApiCuestionario.TraerTodosLosCuestionariosPorCurso(idCurso)
+    .then(datosApiCuestionario => {
+      this.listaCuestionario = datosApiCuestionario;
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+
+  obtenerCuestionariosNoRespondidos(){
+    this.datosApiCuestionario.TraerTodosLosCuestionariosPorResponder(4, this.idCurso)
+    .then(datosApiCuestionario => {
+      this.listaCuestionario = datosApiCuestionario;
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+
+  obtenerCuestionariosRespondidos(){
+    this.datosApiCuestionario.TraerTodosLosCuestionariosRespondidos(4, this.idCurso)
+    .then(datosApiCuestionario => {
+      this.listaCuestionario = datosApiCuestionario;
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+
 // RESPONDIDOS ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Ver el cuestionario
 seleccionarCuestionarioResp(){
   this.valor= "cuestionarioAlumno";
   this.verCuestionarioAlumno= "verCuestionarios";
-  this.obtenerCuestionariosPorCurso(this.idCurso);
+  this.obtenerCuestionariosNoRespondidos();
 }
 
 responderCuestionario(idCuestionario){
@@ -383,7 +406,7 @@ responderCuestionario(idCuestionario){
   verRespondidos(){
   this.valor= "cuestionarioAlumno";
   this.verCuestionarioAlumno= "verCuestionariosRespondidos";
-  this.obtenerCuestionariosPorCurso(this.idCurso);
+  this.obtenerCuestionariosRespondidos();
 }
 
 
@@ -400,7 +423,8 @@ responderCuestionario(idCuestionario){
                       preg4resp: this.respuesta4
                     };
     //Se agregan respuestas a la base de datos
-    this.datosApiCuestionario.GuardarRespuestas(cuestionario);  
+    this.datosApiCuestionario.GuardarRespuestas(cuestionario); 
+    this.nativeAudio.preloadSimple('correcto', 'assets/sound/correcto.mp3'); 
     // document.getElementById("volverMenuAlum").click();        
   }
 
