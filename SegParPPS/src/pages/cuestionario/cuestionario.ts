@@ -425,7 +425,7 @@ responderCuestionario(idCuestionario){
     //Se agregan respuestas a la base de datos
     this.datosApiCuestionario.GuardarRespuestas(cuestionario); 
     this.nativeAudio.preloadSimple('correcto', 'assets/sound/correcto.mp3'); 
-    // document.getElementById("volverMenuAlum").click();        
+    this.volver();       
   }
 
   verCuestionarioRespondido(idCuestionario){
